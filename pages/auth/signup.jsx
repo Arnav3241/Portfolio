@@ -9,7 +9,6 @@ const signUp = () => {
           Arnav Singh - Sign Up
         </title>
       </Head>
-      
     </div>
   );
 };
