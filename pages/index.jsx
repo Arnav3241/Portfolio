@@ -7,8 +7,8 @@ const Home = () => {
     <div>
       <Head> 
         <title> Arnav Singh - Home </title>
-        <link rel="icon" type="image/png" sizes="32x32" href="/logo.png" />
-        <link rel="icon" type="image/png" sizes="64x64" href="/logo.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="https://drive.google.com/file/d/1yVJJr-ryDyQO2DT7TAmRGsSouNFaF6Eu/view?usp=sharing" />
+        <link rel="icon" type="image/png" sizes="64x64" href="https://drive.google.com/file/d/1yVJJr-ryDyQO2DT7TAmRGsSouNFaF6Eu/view?usp=sharing" />
         <meta name='author' content='Arnav Singh' />
         <meta name='description' content='' />
         <meta name='keywords' content='' />
