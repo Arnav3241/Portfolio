@@ -1,23 +1,40 @@
 import Link from "next/link";
 import Head from 'next/head';
-
+import { Navbar, Container, Nav, NavDropdown, Button } from "react-bootstrap";
 
 const Home = () => {
   return (
     <div>
-      <Head> 
+      <Head>
         <title> Arnav Singh - Home </title>
-        <link rel="icon" type="image/png" sizes="32x32" href="https://drive.google.com/file/d/1yVJJr-ryDyQO2DT7TAmRGsSouNFaF6Eu/view?usp=sharing" />
-        <link rel="icon" type="image/png" sizes="64x64" href="https://drive.google.com/file/d/1yVJJr-ryDyQO2DT7TAmRGsSouNFaF6Eu/view?usp=sharing" />
         <meta name='author' content='Arnav Singh' />
         <meta name='description' content='' />
         <meta name='keywords' content='' />
-        <meta property='og:title' content='Arnav Singh - Start Learning To Code Right Now!' />
-        <meta property='og:description' content='Hi, I Am Arnav From India Teaching You Code Many Languages like Python, JavaScript And Frameworks Of JS Like React Js, Next Js, Etc.' />
-        <meta property='og:image' content='https://drive.google.com/file/d/1yVJJr-ryDyQO2DT7TAmRGsSouNFaF6Eu/view?usp=sharing' />
-        <meta property='og:url' content='https://arnav.vercel.app/' />
-        <meta name='twitter:card' content='summary_large_image' />
       </Head>
+      {/* wqiedb */}
+      <Navbar bg="light" expand="lg">
+        <Container>
+          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="#home">Home</Nav.Link>
+              <Nav.Link href="#link">Link</Nav.Link>
+              <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+
+          </Navbar.Collapse>
+            <Button variant="dark">Dark</Button><span>  </span>
+            <Button variant="dark" className="ml-2">Dark</Button>
+        </Container>
+      </Navbar>
+      {/* idc */}
       <h1>
         Portfolio
       </h1>
