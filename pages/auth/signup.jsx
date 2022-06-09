@@ -8,8 +8,8 @@ const signup = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
-  const [Loading, setLoading] = useState(false);
-  const [Success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
 
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -18,7 +18,7 @@ const signup = () => {
 
   return (
     <div className="logIn">
-      {Success && <Notification message={Success} type="success" autoClose={3000} />}
+      {success && <Notification message={success} type="success" autoClose={3000} />}
       <Head> <title> Arnav Singh - Log In </title> </Head>
       <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
         <div className="w-100" style={{ maxWidth: "400px" }}>
@@ -39,7 +39,7 @@ const signup = () => {
                   <Form.Control type="password" autoComplete="new-password" ref={confirmPasswordRef} required />
                 </Form.Group>
                 <br />
-                <Button disabled={Loading} onClick={handleSignUp} type="submit" className="w-100 rounded-0"> Sign Up </Button>
+                <Button disabled={loading} onClick={handleSignUp} type="submit" className="w-100 rounded-0"> Sign Up </Button>
               </Form>
             </Card.Body>
           </Card>
