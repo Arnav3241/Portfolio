@@ -4,7 +4,7 @@ import Notification from "../../components/Notification";
 import Head from "next/head";
 import Link from "next/link";
 
-const signup = () => {
+const Signup = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
@@ -52,4 +52,4 @@ const signup = () => {
   );
 };
 
-export default signup;
+export default Signup;
