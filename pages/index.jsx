@@ -14,7 +14,7 @@ const Home = () => {
         <meta name='keywords' content='' />
         <meta property='og:title' content='Arnav Singh - Start Learning To Code Right Now!' />
         <meta property='og:description' content='Hi, I Am Arnav From India Teaching You Code Many Languages like Python, JavaScript And Frameworks Of JS Like React Js, Next Js, Etc.' />
-        <meta property='og:image' content='/logo.png' />
+        <meta property='og:image' content='https://drive.google.com/file/d/1yVJJr-ryDyQO2DT7TAmRGsSouNFaF6Eu/view?usp=sharing' />
         <meta property='og:url' content='https://arnav.vercel.app/' />
         <meta name='twitter:card' content='summary_large_image' />
       </Head>
