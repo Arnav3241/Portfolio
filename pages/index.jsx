@@ -6,13 +6,17 @@ const Home = () => {
   return (
     <div>
       <Head> 
-        <title> Arnav Singh -  </title>
+        <title> Arnav Singh - Home </title>
+        <link rel="icon" type="image/png" sizes="32x32" href="/logo.png" />
+        <link rel="icon" type="image/png" sizes="64x64" href="/logo.png" />
         <meta name='author' content='Arnav Singh' />
         <meta name='description' content='' />
         <meta name='keywords' content='' />
-        <meta name='og:title' content='Arnav Singh - Start Learning To Code Right Now!' />
-        <meta name='og:description' content='Hi, I Am Arnav From India Teaching You Code Many Languages like Python, JavaScript And Frameworks Of JS Like React Js, Next Js, Etc.' />
-        <meta name='og:image' content='/logo.png' />
+        <meta property='og:title' content='Arnav Singh - Start Learning To Code Right Now!' />
+        <meta property='og:description' content='Hi, I Am Arnav From India Teaching You Code Many Languages like Python, JavaScript And Frameworks Of JS Like React Js, Next Js, Etc.' />
+        <meta property='og:image' content='/logo.png' />
+        <meta property='og:url' content='https://arnav.vercel.app/' />
+        <meta name='twitter:card' content='summary_large_image' />
       </Head>
       <h1>
         Portfolio
