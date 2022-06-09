@@ -19,7 +19,7 @@ const Signup = () => {
   return (
     <div className="logIn">
       {success && <Notification message={success} type="success" autoClose={3000} />}
-      <Head> <title> Arnav Singh - Log In </title> </Head>
+      <Head> <title> Arnav Singh - Sign Up </title> </Head>
       <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
         <div className="w-100" style={{ maxWidth: "400px" }}>
           <Card>
