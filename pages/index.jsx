@@ -31,7 +31,7 @@ const Home = () => {
 
           </Navbar.Collapse>
             <Button variant="dark">Dark</Button><span>  </span>
-            <Button variant="dark" className="ml-2">Dark</Button>
+            <Button variant="dark" className="ml-2" style={{marginLeft: 5}}>Dark</Button>
         </Container>
       </Navbar>
       {/* idc */}
