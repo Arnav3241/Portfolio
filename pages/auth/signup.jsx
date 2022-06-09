@@ -14,7 +14,6 @@ const Signup = () => {
   const handleSignUp = (e) => {
     e.preventDefault();
     setSuccess("You Clicked A Button");
-    setLoading(false);
   }
 
   return (
