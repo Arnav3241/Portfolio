@@ -1,0 +1,23 @@
+.avatar
+{
+    vertical-align: middle;
+    width: 40px ;
+    height: 80px ;
+    border-radius: 50%;
+    border-width: 5px;
+    border-color: aqua;
+    border-style: outset;
+    padding-right: 5px !important;
+    padding-left: 5px !important;
+}
+
+.navbarBtns 
+{
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.cw
+{
+    color: white !important;
+}

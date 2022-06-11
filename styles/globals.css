@@ -1,16 +1,6 @@
+/** Global */
 * {
   box-sizing: border-box;
   text-decoration: none !important;
-}
-
-.avatar
-{
-    vertical-align: middle;
-    width: 80% ;
-    height: 80% ;
-    border-radius: 50%;
-    border-width: 5px;
-    border-color: aqua;
-    border-style: outset;
-    margin-left: 5px !important;
+  padding: 0%;
 }
