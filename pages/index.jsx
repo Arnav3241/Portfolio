@@ -11,7 +11,6 @@ const Home = () => {
         <meta name='description' content='' />
         <meta name='keywords' content='' />
       </Head>
-      <Navbar />
       <h1 className="" >
         Portfolio
       </h1>

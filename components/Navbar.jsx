@@ -1,7 +1,6 @@
 // import { Navbar as NB, Nav, Button, NavDropdown } from "react-bootstrap";
 // import useMediaQuery from "../contexts/CheckScreenSize";
-// import { useAuth } from "../contexts/Authentication";
-import styles from "./Styles/Navbar.module.css";
+// import styles from "./Styles/Navbar.module.css";
 // import { useRouter } from 'next/router';
 // import { useState } from "react";
 // import Image from "next/image";
@@ -72,7 +71,7 @@ import styles from "./Styles/Navbar.module.css";
 
 //                                 </React.Fragment>
 //                             )}
-//                          */}
+//                          /}
 //                     </Nav>
 //                 </NB.Collapse>
 //             </NB> <br /><br /><br />
@@ -82,28 +81,55 @@ import styles from "./Styles/Navbar.module.css";
 
 // export default Navbar;
 import { Navbar, Nav, Button, NavDropdown, Container } from "react-bootstrap";
+import { useAuth } from "../contexts/Authentication";
 import { useRouter } from 'next/router';
 import React from "react";
 
 const NavbarHeader = () => {
     const router = useRouter();
+    const currentUser = useAuth();
+
+    const Spacing = ({ space }) => {
+        return <span style={{ marginRight: space }}></span>
+    };
 
     return (
         <>
-            <Navbar bg="dark" variant="dark" fixed="top">
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
                 <Container>
                     <Navbar.Brand href="#home">
-                        <img alt="" src="/logo.png" width="30" height="30" className="d-inline-block align-top" /> {' '}
+                        <img alt="Logo" src="/logo.png" width="30" height="30" className="d-inline-block align-top" /> {' '}
                         React Bootstrap
                     </Navbar.Brand>
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
-                            <Nav.Link href="#features">Features</Nav.Link>
-                            <Nav.Link href="#pricing">Pricing</Nav.Link>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse className="text-center" id="responsive-navbar-nav">
+                        <Nav className="me-auto Navbar-Links">
+                            <Nav.Link onClick={() => { router.push("/") }} >Home</Nav.Link>
+                            <Nav.Link onClick={() => { router.push("/about") }} >About</Nav.Link>
+                            <Nav.Link onClick={() => { router.push("/blogs") }} >Blogs</Nav.Link>
+                            <Nav.Link onClick={() => { router.push("/youtube") }} >Youtube</Nav.Link>
+                            <Nav.Link onClick={() => { router.push("/contact") }} >Contact Me</Nav.Link>
+                        </Nav>
+                        {/* <br /> */}
+                        <Nav className="" >
+                            <div>
+                                {currentUser ? (
+                                    <React.Fragment >
+                                        <Button onClick={() => { router.push("/auth/user/profile") }} variant="light">Profile</Button>
+                                        <Spacing space={10} />
+                                        <Button variant="light">Log Out</Button>
+                                    </React.Fragment>
+                                ) : (
+                                    <React.Fragment>
+                                        <Button variant="light">Log In</Button>
+                                        <Spacing space={10} />
+                                        <Button variant="light">Sign Up</Button>                                        
+                                    </React.Fragment>
+                                )}
+                            </div>
                         </Nav>
                     </Navbar.Collapse>
-                </Container>
+                </Container> 
             </Navbar>
             <br />
             <br />
