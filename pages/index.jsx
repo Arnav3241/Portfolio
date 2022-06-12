@@ -12,10 +12,9 @@ const Home = () => {
         <meta name='keywords' content='' />
       </Head>
       <Navbar />
-      <h1>
+      <h1 className="" >
         Portfolio
       </h1>
-      <Link href="/about">Hi</Link>
     </div>
   );
 };
