@@ -1,101 +1,115 @@
-import { Navbar as NB, Nav, Button  } from "react-bootstrap";
-import { useAuth } from "../contexts/Authentication"
+// import { Navbar as NB, Nav, Button, NavDropdown } from "react-bootstrap";
+// import useMediaQuery from "../contexts/CheckScreenSize";
+// import { useAuth } from "../contexts/Authentication";
 import styles from "./Styles/Navbar.module.css";
-import useMediaQuery from "../contexts/CheckScreenSize"
-import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
+// import { useRouter } from 'next/router';
+// import { useState } from "react";
+// import Image from "next/image";
+// import Link from "next/link";
+// import React from "react";
+
+// const Navbar = () => {
+//     const [userImg, setUserImg] = useState(`/Default-Avatar.png`);
+//     const isSmallDevice = useMediaQuery(968);
+//     const currentUser = useAuth();
+// import { useRouter } from 'next/router';
+
+//     const Spacing = ({ space }) => {
+//         return <span style={{ marginRight: space }}></span>
+//     };
+
+
+//     return (
+//         <React.Fragment>
+//             <NB collapseOnSelect expand={`lg`} bg={`dark`} variant={`dark`} className={`${styles.Navbar}`}>
+//                 <NB.Brand style={{ marginLeft: 50 }} >
+//                     <Link href="/" style={{ color: "whitesmoke" }} >
+//                         Arnav Singh
+//                     </Link>
+//                 </NB.Brand>
+//                 <NB.Toggle aria-controls={`responsive-navbar-nav`} />
+//                 <NB.Collapse id={`responsive-navbar-nav`} variant={`dark`}>
+//                     <Nav className={`me-auto`} style={{ textAlign: `center` }} >
+//                         <span className={`${styles.Link2}`}> <Link href={`/about`} className={`text-light`} >   About       </Link>  </span>
+//                         <span className={`${styles.Link2}`}> <Link href={`/blogs`} className={`text-light`} >   Blogs       </Link>  </span>
+//                         <span className={`${styles.Link2}`}> <Link href={`/contact`} className={`text-light`} > Contact Me  </Link>  </span>
+//                         <span className={`${styles.Link2}`}> <Link href={`/youtube`} className={`text-light`} > Youtube     </Link>  </span>
+//                     </Nav>
+//                     <Nav style={{ marginRight: 50, textAlign: "center" }} >
+//                         {currentUser ? (
+//                             <React.Fragment >
+//                                 {isSmallDevice ? null : (<Image className={`navbarUserImg ${styles.avatar}`} height={40} width={55} src={userImg} alt={`User's Default Pic`} />)}
+//                                 <div style={{ width: "100vw" }} >
+//                                     <Button className={`${styles.Btn}`} variant={`light`} >Pofile</Button>
+//                                     <Spacing space={10} />
+//                                     <Button variant={`light`} >Log Out</Button>
+//                                 </div>
+//                             </React.Fragment>
+//                         ) : (
+//                             <React.Fragment>
+//                                 <Button variant={`light`} >Log In</Button>
+//                                 <Button variant={`light`} >Log In</Button>
+
+//                             </React.Fragment>
+//                         )}
+//                         {/* { currentUser? (
+//                                 <React.Fragment>
+//                                         <span className={`${styles.Greeting}`} style={{ color: "white" }} > Hello @
+//                                             <span style={{ fontSize: 14 }} >{currentUser.email} </span> 
+//                                         </span>
+//                                         <Spacing space={20} />
+//                                         <Spacing space={20} />
+
+//                                         <span textAlign="center" ><Button variant={`light`} style={{ width: '50%' }}> Profile </Button></span>
+//                                         <Spacing space={10} /> <br />
+//                                         <Button variant={`light`} style={{ width: '50%' }}> Log Out </Button>
+//                                 </React.Fragment>
+//                             ) : (
+//                                 <React.Fragment>
+//                                     <Button variant={`light`} style={{ width: '50%' }}> Log In </Button>
+//                                     <Spacing space={10} />
+//                                     <Button variant={`light`} style={{ width: '50%' }}> Sign Up </Button>
+
+//                                 </React.Fragment>
+//                             )}
+//                          */}
+//                     </Nav>
+//                 </NB.Collapse>
+//             </NB> <br /><br /><br />
+//         </React.Fragment>
+//     );
+// };
+
+// export default Navbar;
+import { Navbar, Nav, Button, NavDropdown, Container } from "react-bootstrap";
+import { useRouter } from 'next/router';
 import React from "react";
 
-
-
-const Navbar = () => { 
-    const isSmallDevice = useMediaQuery(600);
-    const [ userImg, setUserImg ] = useState(`/Default-Avatar.png`)
-    const currentUser = useAuth()
+const NavbarHeader = () => {
+    const router = useRouter();
 
     return (
-        <React.Fragment>
-            <NB collapseOnSelect expand={`lg`} bg={`dark`} variant={`dark`} className={`${styles.Navbar}`}>
-                <NB.Brand style={{ marginLeft: 50 }} >
-                    <Link href="/" style={{ color: "whitesmoke" }} >
-                        Arnav Singh
-                    </Link>
-                </NB.Brand>
-                <NB.Toggle aria-controls={`responsive-navbar-nav`} />
-                <NB.Collapse id={`responsive-navbar-nav`} variant={`dark`}>
-                    <Nav className={`me-auto`} style={{ textAlign: `center` }} >
-                        <span className={`${styles.Link1}`}> <Link href={`/`} className={`text-light`} > Home </Link>  </span> 
-                        <span className={`${styles.Link2}`}> <Link href={`/about`} className={`text-light`} > About </Link>  </span> 
-                        <span className={`${styles.Link2}`}> <Link href={`/about`} className={`text-light`} > Blogs </Link>  </span>
-                        <span className={`${styles.Link2}`}> <Link href={`/about`} className={`text-light`} > Contact Me </Link>  </span>
-                    </Nav>
-                    <Nav style={{ marginRight: 50 }} >
-                        { currentUser? (
-                                <React.Fragment>
-                                    <span className={`${styles.Greeting}`} style={{ color: "white" }} > Hello @
-                                        <span style={{ fontSize: 14 }} >{currentUser.email } </span> 
-                                    </span>
-                                    <span style={{ marginRight: 20 }}></span>
-                                    {isSmallDevice ? null : (                              
-                                    <Image 
-                                        className={`navbarUserImg ${styles.avatar}`} 
-                                        height={40} 
-                                        width={55} 
-                                        src={userImg}  
-                                        alt={`User's Default Pic`} 
-                                    />)}
-                                </React.Fragment>
-                            ) : (
-                                <React.Fragment>
-
-                                </React.Fragment>
-                            )
-                        }
-                        <span style={{ marginRight: 20 }}></span>
-                        <Button variant={`light`}> Log Out </Button>
-                        {/* <Button className={`${styles.navbarBtns}`} variant={`light`}> Sign In </Button> */}
-                        
-                    </Nav>
-                </NB.Collapse>
-            </NB>
-            <br/>
-            <br/>
-            <br/>
-            {/* <NB collapseOnSelect expand={`lg`} bg={`dark`} variant={`dark`}>
-                <NB.Brand style={{ marginLeft: 160 }} >React-Bootstrap</NB.Brand>
-                <NB.Toggle aria-controls={`responsive-navbar-nav`} />
-                <NB.Collapse id={`responsive-navbar-nav`} variant={`dark`}>
-                    <Nav className={`me-auto`} style={{ textAlign: "center" }} >
-                        <Nav.Link> <Link href={`/about`}style={{ width: "100%", height: "100%" }} > About </Link> </Nav.Link>
-                        <Nav.Link> <Link href={`/about`}style={{ width: "100%", height: "100%" }} >About </Link>  </Nav.Link>
-                        <NavDropdown style={{ color: "#0de6fd" }} title={`Dropdown`} id={`collasible-nav-dropdown`} className={`dropdown-menu-dark`}>
-                            <NavDropdown.Item style={{ textAlign: "center" }} >  <Link href={`/about`} > About </Link>  </NavDropdown.Item>
-                            <NavDropdown.Item style={{ textAlign: "center" }} >  <Link href={`/about`} > About </Link>  </NavDropdown.Item>
-                            <NavDropdown.Item style={{ textAlign: "center" }} >  <Link href={`/about`} > About </Link>  </NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item style={{ textAlign: "center" }} >  <Link href={`/about`} style={{ width: "100%", height: "100%" }} > About </Link>  </NavDropdown.Item>
-                        </NavDropdown>
-                    </Nav>
-                    <Nav style={{ textAlign: "center" }} >
-                        <div style={{ color: "white", marginTop: 8 }} >{ isSmallDevice ? (<div>small</div>) : ( <div> Big</div>) }</div>
-                        <span style={{ marginTop: 8 }}></span>
-                        {isSmallDevice?(<span></span>):<div style={{ paddingTop: 0, paddingBlock: 0, marginTop: 2, marginBottom: -6 }} >
-                            <Image 
-                                className={`navbarUserImg ${styles.avatar}`} 
-                                height={40} 
-                                width={55} 
-                                src={`/Default-Avatar.png`}  
-                                alt={`User's Default Pic`} 
-                            />
-                        </div>}
-                        <Button className={`${styles.navbarBtns}`} variant={`light`}> Login </Button>        <span style={{ height: 2 }} />
-                        <Button className={`${styles.navbarBtns}`} variant={`light`}> Sign Up </Button>      <span style={{ height: 2 }} />
-                    </Nav>
-                </NB.Collapse>
-            </NB> */}
-        </React.Fragment>
+        <>
+            <Navbar bg="dark" variant="dark" fixed="top">
+                <Container>
+                    <Navbar.Brand href="#home">
+                        <img alt="" src="/logo.png" width="30" height="30" className="d-inline-block align-top" /> {' '}
+                        React Bootstrap
+                    </Navbar.Brand>
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav className="me-auto">
+                            <Nav.Link href="#home">Home</Nav.Link>
+                            <Nav.Link href="#features">Features</Nav.Link>
+                            <Nav.Link href="#pricing">Pricing</Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+            <br />
+            <br />
+            <br />
+        </>
     );
 };
 
-export default Navbar;
+export default NavbarHeader;
