@@ -83,6 +83,7 @@ import Link from "next/link";
 import { Navbar, Nav, Button, Container } from "react-bootstrap";
 import { useAuth } from "../contexts/Authentication";
 import { useRouter } from 'next/router';
+import { logOut } from "../contexts/Authentication";
 import React from "react";
 
 const NavbarHeader = () => {
@@ -93,8 +94,8 @@ const NavbarHeader = () => {
         return <span style={{ marginRight: space }}></span>
     };
 
-    const Logout = () => {
-
+    async function Logout() {
+        await logOut();
     }
 
     return (
