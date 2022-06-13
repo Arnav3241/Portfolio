@@ -12,7 +12,7 @@ const Signup = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
 
-  const handleSignUp = (e) => {
+  function handleSignUp(e) {
     e.preventDefault();
     await signUp(emailRef.current.value, passwordRef.current.value);
   }
