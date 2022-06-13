@@ -97,8 +97,8 @@ const NavbarHeader = () => {
         <>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
                 <Container>
-                    <Navbar.Brand href="#home">
-                        <div className={`${styles.navContainer}`}>
+                    <Navbar.Brand>
+                        <div className={`${styles.navContainer}`} onCLick={() => { router.push("/") }} >
                             <Image alt="Logo" src="/logo.png" width={30} height={30} className={`d-inline-block ${styles.btnDown}`} />
                             <Spacing space={10} />
                             React Bootstrap
@@ -116,8 +116,11 @@ const NavbarHeader = () => {
                         {/* <br /> */}
                         <Nav className="" >
                             <div>
+                                {currentUser?<span style={{ color: "whitesmoke" }} >Hello { currentUser.email } </span>: null}
+                                <Spacing space={10} />
                                 {currentUser ? (
                                     <React.Fragment >
+
                                         <Button onClick={() => { router.push("/auth/user/profile") }} variant="light">Profile</Button>
                                         <Spacing space={10} />
                                         <Button variant="light">Log Out</Button>
