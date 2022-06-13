@@ -99,9 +99,9 @@ const NavbarHeader = () => {
                 <Container>
                     <Navbar.Brand href="#home">
                         <div className={`${styles.navContainer}`}>
-                                <Image alt="Logo" src="/logo.png" width={30} height={30} className={`d-inline-block ${styles.btnDown}`} /> 
-                                <Spacing space={10} />
-                                React Bootstrap
+                            <Image alt="Logo" src="/logo.png" width={30} height={30} className={`d-inline-block ${styles.btnDown}`} />
+                            <Spacing space={10} />
+                            React Bootstrap
                         </div>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
