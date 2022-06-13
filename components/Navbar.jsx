@@ -1,9 +1,9 @@
 // import { Navbar as NB, Nav, Button, NavDropdown } from "react-bootstrap";
 // import useMediaQuery from "../contexts/CheckScreenSize";
-// import styles from "./Styles/Navbar.module.css";
+import styles from "./Styles/Navbar.module.css";
 // import { useRouter } from 'next/router';
 // import { useState } from "react";
-// import Image from "next/image";
+import Image from "next/image";
 // import Link from "next/link";
 // import React from "react";
 
@@ -80,7 +80,7 @@
 // };
 
 // export default Navbar;
-import { Navbar, Nav, Button, NavDropdown, Container } from "react-bootstrap";
+import { Navbar, Nav, Button, Container } from "react-bootstrap";
 import { useAuth } from "../contexts/Authentication";
 import { useRouter } from 'next/router';
 import React from "react";
@@ -98,17 +98,20 @@ const NavbarHeader = () => {
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
                 <Container>
                     <Navbar.Brand href="#home">
-                        <img alt="Logo" src="/logo.png" width="30" height="30" className="d-inline-block align-top" /> {' '}
-                        React Bootstrap
+                        <div className={`${styles.navContainer}`}>
+                                <Image alt="Logo" src="/logo.png" width={30} height={30} className={`d-inline-block ${styles.btnDown}`} /> 
+                                <Spacing space={10} />
+                                React Bootstrap
+                        </div>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse className="text-center" id="responsive-navbar-nav">
                         <Nav className="me-auto Navbar-Links">
-                            <Nav.Link onClick={() => { router.push("/") }} >Home</Nav.Link>
-                            <Nav.Link onClick={() => { router.push("/about") }} >About</Nav.Link>
-                            <Nav.Link onClick={() => { router.push("/blogs") }} >Blogs</Nav.Link>
-                            <Nav.Link onClick={() => { router.push("/youtube") }} >Youtube</Nav.Link>
-                            <Nav.Link onClick={() => { router.push("/contact") }} >Contact Me</Nav.Link>
+                            <Nav.Link onClick={() => { router.push("/") }} >        Home        </Nav.Link>
+                            <Nav.Link onClick={() => { router.push("/about") }} >   About       </Nav.Link>
+                            <Nav.Link onClick={() => { router.push("/blogs") }} >   Blogs       </Nav.Link>
+                            <Nav.Link onClick={() => { router.push("/youtube") }} > Youtube     </Nav.Link>
+                            <Nav.Link onClick={() => { router.push("/contact") }} > Contact Me  </Nav.Link>
                         </Nav>
                         {/* <br /> */}
                         <Nav className="" >
@@ -123,13 +126,13 @@ const NavbarHeader = () => {
                                     <React.Fragment>
                                         <Button variant="light">Log In</Button>
                                         <Spacing space={10} />
-                                        <Button variant="light">Sign Up</Button>                                        
+                                        <Button variant="light">Sign Up</Button>
                                     </React.Fragment>
                                 )}
                             </div>
                         </Nav>
                     </Navbar.Collapse>
-                </Container> 
+                </Container>
             </Navbar>
             <br />
             <br />

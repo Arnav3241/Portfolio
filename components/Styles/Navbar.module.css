@@ -1,0 +1,11 @@
+.btnDown
+{
+    top: 5px
+}
+
+.navContainer
+{
+    display: flex;
+    align-items: center;
+    height: 45px;
+}
