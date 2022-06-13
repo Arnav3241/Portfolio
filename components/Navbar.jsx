@@ -4,7 +4,7 @@ import styles from "./Styles/Navbar.module.css";
 // import { useRouter } from 'next/router';
 // import { useState } from "react";
 import Image from "next/image";
-// import Link from "next/link";
+import Link from "next/link";
 // import React from "react";
 
 // const Navbar = () => {
@@ -98,11 +98,13 @@ const NavbarHeader = () => {
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
                 <Container>
                     <Navbar.Brand>
-                        <div className={`${styles.navContainer}`} onCLick={() => { router.push("/") }} >
-                            <Image alt="Logo" src="/logo.png" width={30} height={30} className={`d-inline-block ${styles.btnDown}`} />
-                            <Spacing space={10} />
-                            React Bootstrap
-                        </div>
+                        <Link href={`/`}>
+                            <div className={`${styles.navContainer}`}>
+                                <Image alt="Logo" src="/logo.png" width={30} height={30} className={`d-inline-block ${styles.btnDown}`} />
+                                <Spacing space={10} />
+                                React Bootstrap
+                            </div>
+                        </Link>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse className="text-center" id="responsive-navbar-nav">
