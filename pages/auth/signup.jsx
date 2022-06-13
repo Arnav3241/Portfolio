@@ -1,7 +1,7 @@
 import { Container, Card, Form, Button } from "react-bootstrap";
 import React, { useState, useRef } from "react";
 import Notification from "../../components/Notification";
-import { Signup } from "../../contexts/Authentication";
+import { Signup as signUp } from "../../contexts/Authentication";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -14,7 +14,7 @@ const Signup = () => {
 
   const handleSignUp = (e) => {
     e.preventDefault();
-    await Signup(emailRef.current.value, passwordRef.current.value);
+    await signUp(emailRef.current.value, passwordRef.current.value);
   }
 
   return (
