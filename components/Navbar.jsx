@@ -102,7 +102,7 @@ const NavbarHeader = () => {
                             <div style={{ cursor: "pointer" }} className={`${styles.navContainer}`}>
                                 <Image alt="Logo" src="/logo.png" width={30} height={30} className={`d-inline-block ${styles.btnDown}`} />
                                 <Spacing space={10} />
-                                React Bootstrap
+                                Arnav Singh
                             </div>
                         </Link>
                     </Navbar.Brand>
