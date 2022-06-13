@@ -4,6 +4,7 @@ import Notification from "../../components/Notification";
 import { Signup as signUp } from "../../contexts/Authentication";
 import Head from "next/head";
 import Link from "next/link";
+import { async } from "@firebase/util";
 
 const Signup = () => {
   const emailRef = useRef();
@@ -12,7 +13,7 @@ const Signup = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
 
-  function handleSignUp(e) {
+  async function handleSignUp(e) {
     e.preventDefault();
     await signUp(emailRef.current.value, passwordRef.current.value);
   }
