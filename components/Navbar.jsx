@@ -93,6 +93,10 @@ const NavbarHeader = () => {
         return <span style={{ marginRight: space }}></span>
     };
 
+    const Logout = () => {
+
+    }
+
     return (
         <>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
@@ -125,13 +129,13 @@ const NavbarHeader = () => {
 
                                         <Button onClick={() => { router.push("/auth/user/profile") }} variant="light">Profile</Button>
                                         <Spacing space={10} />
-                                        <Button variant="light">Log Out</Button>
+                                        <Button onClick={ Logout } variant="light">Log Out</Button>
                                     </React.Fragment>
                                 ) : (
                                     <React.Fragment>
-                                        <Button variant="light">Log In</Button>
+                                        <Button onClick={() => { router.push("/login") }} variant="light">Log In</Button>
                                         <Spacing space={10} />
-                                        <Button variant="light">Sign Up</Button>
+                                        <Button onClick={() => { router.push("/signup") }} variant="light">Sign Up</Button>
                                     </React.Fragment>
                                 )}
                             </div>
