@@ -11,9 +11,9 @@ const Home = () => {
         <meta name='description' content='' />
         <meta name='keywords' content='' />
       </Head>
-      <h1 className="" >
-        Main Page Of My Portfolio, Guys!
-      </h1>
+      <div className="mx-4 mt-5" >
+        <h1>Main Page Of My Portfolio, Guys!</h1>
+      </div>
     </div>
   );
 };

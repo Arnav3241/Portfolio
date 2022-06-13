@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /*? Global */
 * {
   box-sizing: border-box;
@@ -8,6 +12,7 @@
 
 body{
   min-height: 100.06vh;
+  min-height: 100.6vh;
 }
 
 /*? Custom Scroll Bar */
