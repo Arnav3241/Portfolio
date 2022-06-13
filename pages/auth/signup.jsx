@@ -1,10 +1,9 @@
 import { Container, Card, Form, Button } from "react-bootstrap";
 import React, { useState, useRef } from "react";
 import Notification from "../../components/Notification";
-import { Signup as signUp } from "../../contexts/Authentication";
+import { signUpViaEmail } from "../../contexts/Authentication";
 import Head from "next/head";
 import Link from "next/link";
-import { async } from "@firebase/util";
 
 const Signup = () => {
   const emailRef = useRef();
@@ -15,7 +14,7 @@ const Signup = () => {
 
   async function handleSignUp(e) {
     e.preventDefault();
-    await signUp(emailRef.current.value, passwordRef.current.value);
+    await signUpViaEmail(emailRef.current.value, passwordRef.current.value);
   }
 
   return (
