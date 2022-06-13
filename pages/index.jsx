@@ -12,7 +12,7 @@ const Home = () => {
         <meta name='keywords' content='' />
       </Head>
       <h1 className="" >
-        Dashboard Page
+        Main Page Of My Portfolio, Guys!
       </h1>
     </div>
   );
