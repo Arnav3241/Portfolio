@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const Signup = () => {
   const emailRef = useRef();
-  const passwordRef = useRef();
+  const passwordRef = useRef(); 
   const passwordConfirmRef = useRef();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);

@@ -6,7 +6,26 @@
   margin: 0%;
 }
 
-html 
-{
-  scroll-behavior: smooth;
+body{
+  min-height: 100.06vh;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar {
+  background-color: #212529;
+  width: 20px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(109, 40, 217, 0.5);
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+body::-webkit-scrollbar-corner, body::-webkit-scrollbar-track {
+  background-color: transparent;
 }
