@@ -133,9 +133,9 @@ const NavbarHeader = () => {
                                     </React.Fragment>
                                 ) : (
                                     <React.Fragment>
-                                        <Button onClick={() => { router.push("/login") }} variant="light">Log In</Button>
+                                        <Button onClick={() => { router.push("/auth/login") }} variant="light">Log In</Button>
                                         <Spacing space={10} />
-                                        <Button onClick={() => { router.push("/signup") }} variant="light">Sign Up</Button>
+                                        <Button onClick={() => { router.push("/auth/signup") }} variant="light">Sign Up</Button>
                                     </React.Fragment>
                                 )}
                             </div>
