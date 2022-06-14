@@ -4,7 +4,7 @@ import Notification from "../../components/Notification";
 import { Container, Card, Form } from "react-bootstrap";
 import Link from "next/link";
 
-const login = () => {
+const Login = () => {
   const emailRef = useRef();
   const passwordRef = useRef(); 
   const passwordConfirmRef = useRef();
@@ -56,4 +56,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;
