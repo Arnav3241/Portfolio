@@ -1,4 +1,4 @@
-import { Navbar, Nav, Button, Container } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import { useAuth } from "../contexts/Authentication";
 import { logOut } from "../contexts/Authentication";
 import styles from "./Styles/Navbar.module.css";
@@ -20,8 +20,8 @@ const NavbarHeader = () => {
     }
 
     return (
-        <>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
+        <React.Fragment>
+            <Navbar className="Navbar" collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
                 <Container>
                     <Navbar.Brand>
                         <Link href={`/`}>
@@ -44,20 +44,20 @@ const NavbarHeader = () => {
                         {/* <br /> */}
                         <Nav className="" >
                             <div>
-                                {currentUser?<span style={{ color: "whitesmoke" }} >Hello { currentUser.email } </span>: null}
+                                {currentUser ? <span style={{ color: "whitesmoke" }} >Hello {currentUser.email} </span> : null}
                                 <Spacing space={10} />
                                 {currentUser ? (
                                     <React.Fragment >
 
-                                        <Button onClick={() => { router.push("/auth/user/profile") }} className="text-white" variant="light">Profile</Button>
+                                        <button onClick={() => { router.push("/auth/user/profile") }} className="bg-blue-900 hover:bg-blue-900 text-white font-semibold  py-2 px-4 border border-blue-500  rounded" variant="light">Profile</button>
                                         <Spacing space={10} />
-                                        <Button onClick={ Logout } variant="light">Log Out</Button>
+                                        <button onClick={Logout} variant="light" className="bg-blue-900 hover:bg-blue-900 text-white font-semibold  py-2 px-4 border border-blue-500  rounded">Log Out</button>
                                     </React.Fragment>
                                 ) : (
                                     <React.Fragment>
-                                        <Button onClick={() => { router.push("/auth/login") }} variant="light">Log In</Button>
+                                        <button onClick={() => { router.push("/auth/login") }} variant="light" className="bg-blue-900 hover:bg-blue-900 text-white font-semibold  py-2 px-4 border border-blue-500  rounded">Log In</button>
                                         <Spacing space={10} />
-                                        <Button onClick={() => { router.push("/auth/signup") }} variant="light">Sign Up</Button>
+                                        <button onClick={() => { router.push("/auth/signup") }} variant="light" className="bg-blue-900 hover:bg-blue-900 text-white font-semibold  py-2 px-4 border border-blue-500  rounded">Sign Up</button>
                                     </React.Fragment>
                                 )}
                             </div>
@@ -65,10 +65,8 @@ const NavbarHeader = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-            <br />
-            <br />
-            <br />
-        </>
+            <br /> <br /> <br />
+        </React.Fragment>
     );
 };
 
