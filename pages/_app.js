@@ -3,6 +3,7 @@ import '../styles/globals.css';
 import Head from "next/head";
 import Navbar from "../components/Navbar";
 import React from 'react';
+import Footer from '../components/Footer';
 
 const MyApp = ({ Component, pageProps }) => {
   return (
@@ -15,6 +16,7 @@ const MyApp = ({ Component, pageProps }) => {
         </Head>
         <Navbar />
         <Component {...pageProps} />
+        <Footer />
       </SSRProvider>
     </React.Fragment>
   );

@@ -3,12 +3,12 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, on
 import { useEffect, useState } from "react";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyB5_DQAefwODkzDAC64sTHWrnWwFjoog1A",
-    authDomain: "auth-production-b3b26.firebaseapp.com",
-    projectId: "auth-production-b3b26",
-    storageBucket: "auth-production-b3b26.appspot.com",
-    messagingSenderId: "977237570540",
-    appId: "1:977237570540:web:f3f2ddfc93cea6e95306c9"
+    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 };
 
 initializeApp(firebaseConfig);

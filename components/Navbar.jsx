@@ -49,7 +49,7 @@ const NavbarHeader = () => {
                                 {currentUser ? (
                                     <React.Fragment >
 
-                                        <Button onClick={() => { router.push("/auth/user/profile") }} variant="light">Profile</Button>
+                                        <Button onClick={() => { router.push("/auth/user/profile") }} className="text-white" variant="light">Profile</Button>
                                         <Spacing space={10} />
                                         <Button onClick={ Logout } variant="light">Log Out</Button>
                                     </React.Fragment>
