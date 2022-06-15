@@ -18,19 +18,7 @@ const Signup = () => {
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-
-    if (!emailRef.current.value || !passwordRef.current.value || !passwordConfirmRef.current.value ) { setError("Please Enter All The Credentials!"); }
-    else if (passwordRef.current.value !== passwordConfirmRef.current.value) { setError("Passwords do not match") }    
-    else { try { 
-      setLoading(true);
-      setError(""); 
-      setSuccess("");
-      await signUpViaEmail(nameRef.current.value, emailRef.current.value, passwordRef.current.value);
-      setSuccess("Successfully Created a Account");
-      Router.push("/")
-    }
-    catch (error) { setError(`${error}`) } 
-    finally { setLoading(false) } }
+    signUpViaEmail(nameRef, emailRef, passwordRef, passwordConfirmRef, setSuccess, setError, setLoading, Router);
   }
 
   return (

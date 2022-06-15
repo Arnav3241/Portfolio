@@ -1,15 +1,15 @@
+import { logOut, getData, useAuth } from "../contexts/Authentication";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import { useAuth } from "../contexts/Authentication";
-import { logOut } from "../contexts/Authentication";
 import styles from "./Styles/Navbar.module.css";
 import { useRouter } from 'next/router';
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const NavbarHeader = () => {
     const router = useRouter();
-    const currentUser = useAuth();
+    const user = useAuth();
+    const [displayName, setDisplayName] = useState("");
 
     const Spacing = ({ space }) => {
         return <span style={{ marginRight: space }}></span>
@@ -17,6 +17,13 @@ const NavbarHeader = () => {
 
     async function Logout() {
         await logOut();
+    }
+
+    if (user) {
+        const Data = Promise.resolve(getData(user.uid));
+        Data.then(data => {
+            setDisplayName(data.Name);
+        })
     }
 
     return (
@@ -44,9 +51,9 @@ const NavbarHeader = () => {
                         {/* <br /> */}
                         <Nav className="" >
                             <div>
-                                {currentUser ? <span style={{ color: "whitesmoke" }} >Hello {currentUser.email} </span> : null}
+                                {user ? <span style={{ color: "whitesmoke" }} >Hello {displayName}! </span> : null}
                                 <Spacing space={10} />
-                                {currentUser ? (
+                                {user ? (
                                     <React.Fragment >
 
                                         <button onClick={() => { router.push("/auth/user/profile") }} className="bg-blue-900 hover:bg-blue-900 text-white font-semibold  py-2 px-4 border border-blue-500  rounded" variant="light">Profile</button>

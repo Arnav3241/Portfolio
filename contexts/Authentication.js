@@ -1,37 +1,30 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth"
-import { getFirestore, query, getDocs, collection, where, addDoc } from "firebase/firestore"
-import { initializeApp } from "firebase/app";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { db, auth } from "./FIrebaseConfig"
 
-const firebaseConfig = {
-    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
-};
-
-const App = initializeApp(firebaseConfig);
-const db = getFirestore(App);
-const auth = getAuth(App);
-
-
-const signUpViaEmail = async (name, email, password) => {
-    try {
-        const res = await createUserWithEmailAndPassword(auth, email, password);
-        const user = res.user;
-        console.log(user);
-        await addDoc(collection(db, "users"), {
-          uid: user.uid,
-          name,
-          authProvider: "local",
-          email,
-        });
-      } catch (err) {
-        console.error(err);
-        alert(err.message);
-      }
+const signUpViaEmail = async (name, email, password, passwordConfirm, setSuccess, setError, setLoading, Router) => {
+    setLoading(true);
+    if (!email.current.value || !password.current.value || !passwordConfirm.current.value ) { setError("Please Enter All The Credentials!"); }
+    else if (password.current.value !== passwordConfirm.current.value) { setError("Passwords do not match") }    
+    else { try { 
+      setError(""); 
+      setSuccess("");
+      const result = await createUserWithEmailAndPassword(auth, email.current.value, password.current.value);
+      const user = result.user;
+      await addDoc(collection(db, "users"), {
+        Uid: user.uid,
+        Name: name.current.value,
+        Auth_Provider: ("Arnav Singh's Portfolio!"),
+        Email: email.current.value,
+        Created_At: String(new Date())
+      })
+      setSuccess("Successfully Created a Account");
+      Router.push("/")
+    }
+    catch (error) { alert(`${error}`) } 
+    finally { setLoading(false) }}
+    setLoading(false)
 };
 
 const logInViaEmail = (email, password) => {
@@ -53,4 +46,11 @@ const useAuth = () => {
     return currentUser;
 };
 
-export { useAuth, signUpViaEmail, logInViaEmail, logOut };
+const getData = async (uid) => {
+    
+    const Query = query(collection(db, "users"), where("Uid", "==", uid));
+    const Document = await getDocs(Query);
+    return Document.docs[0].data();
+}
+
+export { useAuth, signUpViaEmail, logInViaEmail, logOut, getData };
