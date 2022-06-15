@@ -7,7 +7,6 @@ import Link from "next/link";
 const Login = () => {
   const emailRef = useRef();
   const passwordRef = useRef(); 
-  const passwordConfirmRef = useRef();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState("");
@@ -27,7 +26,7 @@ const Login = () => {
           <div className="w-100" style={{ maxWidth: "400px" }}>
             <Card>
               <Card.Body>
-                <h1 className='text-3xl text-center mb-4'> Sign Up </h1>
+                <h1 className='text-3xl text-center mb-4'> Log In </h1>
                 <Form>
                   <Form.Group id="email" >
                     <Form.Label className="mb-1" > E-mail: </Form.Label>
@@ -37,17 +36,13 @@ const Login = () => {
                     <Form.Label className="mt-2 mb-1"> Password: </Form.Label>
                     <Form.Control type="password" autoComplete="new-password" ref={passwordRef} required />
                   </Form.Group>
-                  <Form.Group id="confirm-password" >
-                    <Form.Label className="mt-2 mb-1" > Confirm Password: </Form.Label>
-                    <Form.Control type="password" autoComplete="new-password" ref={passwordConfirmRef} required />
-                  </Form.Group>
                   <br />
                   <button disabled={loading} onClick={handleLogIn} type="submit" className=" w-100 bg-blue-900  text-white font-semibold  py-2 px-4 border border-blue-500 hover:border-transparent rounded"> Sign Up </button>
                 </Form>
               </Card.Body>
             </Card>
             <div className="2-100 text-center mt-2" >
-              Already have a Account? <Link href="/auth/login">Log In</Link>
+              Already Have A Account? <Link href="/auth/signin">Sign In</Link>
             </div>
           </div>
         </Container>

@@ -1,5 +1,6 @@
-import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth"
+import { getFirestore, query, getDocs, collection, where, addDoc } from "firebase/firestore"
+import { initializeApp } from "firebase/app";
 import { useEffect, useState } from "react";
 
 const firebaseConfig = {
@@ -11,12 +12,26 @@ const firebaseConfig = {
     appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 };
 
-initializeApp(firebaseConfig);
+const App = initializeApp(firebaseConfig);
+const db = getFirestore(App);
+const auth = getAuth(App);
 
-const auth = getAuth();
 
-const signUpViaEmail = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password);
+const signUpViaEmail = async (name, email, password) => {
+    try {
+        const res = await createUserWithEmailAndPassword(auth, email, password);
+        const user = res.user;
+        console.log(user);
+        await addDoc(collection(db, "users"), {
+          uid: user.uid,
+          name,
+          authProvider: "local",
+          email,
+        });
+      } catch (err) {
+        console.error(err);
+        alert(err.message);
+      }
 };
 
 const logInViaEmail = (email, password) => {

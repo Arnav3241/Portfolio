@@ -8,6 +8,7 @@ import Link from "next/link";
 
 const Signup = () => {
   const emailRef = useRef();
+  const nameRef = useRef();
   const passwordRef = useRef(); 
   const passwordConfirmRef = useRef();
   const [loading, setLoading] = useState(false);
@@ -24,9 +25,9 @@ const Signup = () => {
       setLoading(true);
       setError(""); 
       setSuccess("");
-      await signUpViaEmail(emailRef.current.value, passwordRef.current.value);
+      await signUpViaEmail(nameRef.current.value, emailRef.current.value, passwordRef.current.value);
       setSuccess("Successfully Created a Account");
-      Router("/") 
+      Router.push("/")
     }
     catch (error) { setError(`${error}`) } 
     finally { setLoading(false) } }
@@ -43,6 +44,10 @@ const Signup = () => {
             <Card.Body>
               <h1 className='text-3xl text-center mb-4'> Sign Up </h1>
               <Form>
+                <Form.Group id="User Name" >
+                  <Form.Label className="mb-1" > Name: </Form.Label>
+                  <Form.Control type="text" autoComplete="name" ref={nameRef} required />
+                </Form.Group>
                 <Form.Group id="email" >
                   <Form.Label className="mb-1" > E-mail: </Form.Label>
                   <Form.Control type="email" autoComplete="email" ref={emailRef} required />

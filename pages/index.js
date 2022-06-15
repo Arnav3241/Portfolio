@@ -1,7 +1,14 @@
 import Head from 'next/head';
-import Footer from '../components/Footer';
+// import Footer from '../components/Footer';
+import { useAuth } from "../contexts/Authentication"
 
 const Home = () => {
+  const user = useAuth();
+
+  if (user) {
+    console.log(user.uid)
+  }
+
   return (
     <div>
       <Head>
