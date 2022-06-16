@@ -20,7 +20,7 @@ const signUpViaEmail = async (name, email, password, passwordConfirm, setSuccess
         Created_At: String(new Date())
       })
       setSuccess("Successfully Created a Account");
-      Router.push("/")
+    //   Router.push("/")
     }
     catch (error) { alert(`${error}`) } 
     finally { setLoading(false) }}
@@ -47,10 +47,11 @@ const useAuth = () => {
 };
 
 const getData = async (uid) => {
-    
-    const Query = query(collection(db, "users"), where("Uid", "==", uid));
-    const Document = await getDocs(Query);
-    return Document.docs[0].data();
+    try {
+        const Query = query(collection(db, "users"), where("Uid", "==", uid));
+        const Document = await getDocs(Query);
+        return Document.docs[0].data();
+    } catch (err) { console.log(err) }
 }
 
 export { useAuth, signUpViaEmail, logInViaEmail, logOut, getData };
