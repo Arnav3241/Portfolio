@@ -5,7 +5,7 @@ import { db, auth } from "./FIrebaseConfig"
 
 const signUpViaEmail = async (name, email, password, passwordConfirm, setSuccess, setError, setLoading, Router) => {
     setLoading(true);
-    if (!email.current.value || !password.current.value || !passwordConfirm.current.value ) { setError("Please Enter All The Credentials!"); }
+    if (!email.current.value || !name.current.value || !password.current.value || !passwordConfirm.current.value ) { setError("Please Enter All The Credentials!"); }
     else if (password.current.value !== passwordConfirm.current.value) { setError("Passwords do not match") }    
     else { try { 
       setError(""); 
