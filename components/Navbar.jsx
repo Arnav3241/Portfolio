@@ -2,9 +2,9 @@ import { logOut, getData, useAuth } from "../contexts/Authentication";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import styles from "./Styles/Navbar.module.css";
 import { useRouter } from 'next/router';
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
 
 const NavbarHeader = () => {
     const router = useRouter();

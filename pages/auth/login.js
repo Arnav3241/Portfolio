@@ -1,8 +1,8 @@
 import { Container, Card, Form } from "react-bootstrap";
-import { ToastContainer, toast } from "react-toastify";
 import { logIn } from "../../contexts/Authentication";
 import React, { useState, useRef } from "react";
 import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -15,14 +15,13 @@ const Login = () => {
     setLoading(true);
     if (!emailRef.current.value || !passwordRef.current.value) {
       toast.error("Please Enter All The Credentials!");
-      console.log("Please Enter All The Credentials!");
     }
     else {
       try {
         await logIn(emailRef.current.value, passwordRef.current.value);
         toast.success("Successfully Loged In to your Account");
-      } catch (err) {
-        toast.error(err);
+      } catch (error) {
+        toast.error(error.message);
       }
     }
     setLoading(false);
@@ -33,7 +32,6 @@ const Login = () => {
       <Head> <title> Arnav Singh - login </title> </Head>
       <React.Fragment>
         <Head> <title> Arnav Singh - Sign Up </title> </Head>
-        <ToastContainer position={`top-left`} theme="dark" autoClose={1500} limit={1} />
         <Container className="bg-# d-flex align-items-center justify-content-center" style={{ minHeight: '80vh' }}>
           <div className="w-100" style={{ maxWidth: "400px" }}>
             <Card>
@@ -51,6 +49,10 @@ const Login = () => {
                   <br />
                   <button disabled={loading} onClick={handleLogIn} className=" w-100 bg-blue-900  text-white font-semibold  py-2 px-4 border border-blue-500 hover:border-transparent rounded"> Sign Up </button>
                 </Form>
+
+                <div className="2-100 text-center mt-2" >
+                  <Link href="/auth/forgot-password">Forgot Password?</Link>
+                </div>
               </Card.Body>
             </Card>
             <div className="2-100 text-center mt-2" >

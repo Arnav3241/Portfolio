@@ -1,8 +1,8 @@
 import { signUp } from "../../contexts/Authentication";
 import { Container, Card, Form } from "react-bootstrap";
-import { ToastContainer, toast } from "react-toastify"
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify"
 import React, { useState, useRef } from "react";
+import 'react-toastify/dist/ReactToastify.css';
 import Head from "next/head";
 import Link from "next/link";
 
@@ -12,21 +12,19 @@ const Signup = () => {
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [success, setSuccess] = useState("");
 
   const handleSignUp = async (e) => {
     e.preventDefault();
     setLoading(true);
     if (!emailRef.current.value || !nameRef.current.value || !passwordRef.current.value || !passwordConfirmRef.current.value) {
-      setError("Please Enter All The Credentials!");
+      toast.error("Please Enter All The Credentials!");
     }
     else if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      setError("Passwords do not match");
+      toast.error("Passwords do not match");
     }
     else {
       try {
-        const result = await createUserWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value);
+        const result = await signUp( emailRef.current.value, passwordRef.current.value);
         const user = result.user;
         await addDoc(collection(db, "users"), {
           Uid: user.uid,
@@ -35,9 +33,9 @@ const Signup = () => {
           Email: emailRef.current.value,
           Created_At: String(new Date())
         });
-        setSuccess("Successfully Created a Account");
+        toast.success("Successfully Created a Account");
       } catch (error) {
-        setError(`${error}`)
+        toast.error(error.message)
       }
     }
     setLoading(false);
@@ -45,8 +43,6 @@ const Signup = () => {
 
   return (
     <React.Fragment>
-      {success && <Notification message={success} type="success" autoClose={3000} />}
-      {error && <Notification message={error} type="error" autoClose={3000} />}
       <Head> <title> Arnav Singh - Sign Up </title> </Head>
       <Container className="bg-# d-flex align-items-center justify-content-center" style={{ minHeight: '80vh' }}>
         <div className="w-100" style={{ maxWidth: "400px" }}>

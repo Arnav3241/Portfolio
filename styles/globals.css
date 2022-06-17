@@ -35,3 +35,7 @@ body{
 ::-webkit-scrollbar-corner, body::-webkit-scrollbar-track {
   background-color: transparent;
 }
+
+.Toastify__toast-container {
+  min-width: 25vw;
+}

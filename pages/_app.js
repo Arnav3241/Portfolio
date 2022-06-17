@@ -1,11 +1,20 @@
+import useMediaQuery from "../contexts/CheckScreenSize";
+import React, { useEffect, useState } from 'react';
+import { ToastContainer } from "react-toastify";
 import { SSRProvider } from 'react-bootstrap';
+import Navbar from "../components/Navbar";
+import Footer from '../components/Footer';
 import '../styles/globals.css';
 import Head from "next/head";
-import Navbar from "../components/Navbar";
-import React from 'react';
-import Footer from '../components/Footer';
 
 const MyApp = ({ Component, pageProps }) => {
+  const isSmallDevice = useMediaQuery(790);
+  const [toastLoaction, setToastLocation] = useState("bottom-right");
+
+  useEffect(() => {
+    isSmallDevice? setToastLocation("top-left") : setToastLocation("bottom-right");
+  }, [isSmallDevice])
+
   return (
     <React.Fragment>
       <SSRProvider>
@@ -15,6 +24,7 @@ const MyApp = ({ Component, pageProps }) => {
           <link rel="icon" href="/logo.png" />
         </Head>
         <Navbar />
+        <ToastContainer position={`${toastLoaction}`} style={{ maxWidth: "100vw" }} theme="dark" autoClose={3000} newestOnTop />
         <Component {...pageProps} />
         <Footer />
       </SSRProvider>
