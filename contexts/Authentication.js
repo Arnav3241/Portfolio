@@ -9,6 +9,7 @@ const signUp = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
 }
 
+// A Authentication Function To Log In User via Email and Password
 const logIn = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
 }
