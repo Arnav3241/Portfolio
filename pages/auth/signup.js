@@ -1,24 +1,46 @@
-import { signUpViaEmail } from "../../contexts/Authentication";
-import Notification from "../../components/Notification";
+import { signUp } from "../../contexts/Authentication";
 import { Container, Card, Form } from "react-bootstrap";
+import { ToastContainer, toast } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 import React, { useState, useRef } from "react";
-import { useRouter } from "next/router"
 import Head from "next/head";
 import Link from "next/link";
 
 const Signup = () => {
   const emailRef = useRef();
   const nameRef = useRef();
-  const passwordRef = useRef(); 
+  const passwordRef = useRef();
   const passwordConfirmRef = useRef();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState("");
-  const Router = useRouter();
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-    signUpViaEmail(nameRef, emailRef, passwordRef, passwordConfirmRef, setSuccess, setError, setLoading, Router);
+    setLoading(true);
+    if (!emailRef.current.value || !nameRef.current.value || !passwordRef.current.value || !passwordConfirmRef.current.value) {
+      setError("Please Enter All The Credentials!");
+    }
+    else if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      setError("Passwords do not match");
+    }
+    else {
+      try {
+        const result = await createUserWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value);
+        const user = result.user;
+        await addDoc(collection(db, "users"), {
+          Uid: user.uid,
+          Name: nameRef.current.value,
+          Auth_Provider: ("Arnav Singh's Portfolio!"),
+          Email: emailRef.current.value,
+          Created_At: String(new Date())
+        });
+        setSuccess("Successfully Created a Account");
+      } catch (error) {
+        setError(`${error}`)
+      }
+    }
+    setLoading(false);
   }
 
   return (

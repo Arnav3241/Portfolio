@@ -1,27 +1,39 @@
-import Head from "next/head";
-import React, { useState, useRef } from "react";
-import Notification from "../../components/Notification";
 import { Container, Card, Form } from "react-bootstrap";
+import { ToastContainer, toast } from "react-toastify";
+import { logIn } from "../../contexts/Authentication";
+import React, { useState, useRef } from "react";
+import 'react-toastify/dist/ReactToastify.css';
+import Head from "next/head";
 import Link from "next/link";
 
 const Login = () => {
   const emailRef = useRef();
-  const passwordRef = useRef(); 
+  const passwordRef = useRef();
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [success, setSuccess] = useState("");
 
   const handleLogIn = async () => {
-
+    setLoading(true);
+    if (!emailRef.current.value || !passwordRef.current.value) {
+      toast.error("Please Enter All The Credentials!");
+      console.log("Please Enter All The Credentials!");
+    }
+    else {
+      try {
+        await logIn(emailRef.current.value, passwordRef.current.value);
+        toast.success("Successfully Loged In to your Account");
+      } catch (err) {
+        toast.error(err);
+      }
+    }
+    setLoading(false);
   }
 
   return (
     <div>
       <Head> <title> Arnav Singh - login </title> </Head>
       <React.Fragment>
-        {success && <Notification message={success} type="success" autoClose={3000} />}
-        {error && <Notification message={error} type="error" autoClose={3000} />}
         <Head> <title> Arnav Singh - Sign Up </title> </Head>
+        <ToastContainer position={`top-left`} theme="dark" autoClose={1500} limit={1} />
         <Container className="bg-# d-flex align-items-center justify-content-center" style={{ minHeight: '80vh' }}>
           <div className="w-100" style={{ maxWidth: "400px" }}>
             <Card>
@@ -37,7 +49,7 @@ const Login = () => {
                     <Form.Control type="password" autoComplete="new-password" ref={passwordRef} required />
                   </Form.Group>
                   <br />
-                  <button disabled={loading} onClick={handleLogIn} type="submit" className=" w-100 bg-blue-900  text-white font-semibold  py-2 px-4 border border-blue-500 hover:border-transparent rounded"> Sign Up </button>
+                  <button disabled={loading} onClick={handleLogIn} className=" w-100 bg-blue-900  text-white font-semibold  py-2 px-4 border border-blue-500 hover:border-transparent rounded"> Sign Up </button>
                 </Form>
               </Card.Body>
             </Card>
