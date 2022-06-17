@@ -43,10 +43,10 @@ const NavbarHeader = () => {
                     <Navbar.Collapse className="text-center" id="responsive-navbar-nav">
                         <Nav className="me-auto Navbar-Links">
                             <Nav.Link onClick={() => { router.push("/") }} >        Home        </Nav.Link>
-                            <Nav.Link onClick={() => { router.push("/about") }} >   About       </Nav.Link>
-                            <Nav.Link onClick={() => { router.push("/blogs") }} >   Blogs       </Nav.Link>
-                            <Nav.Link onClick={() => { router.push("/youtube") }} > Youtube     </Nav.Link>
-                            <Nav.Link onClick={() => { router.push("/contact") }} > Contact Me  </Nav.Link>
+                            <Nav.Link onClick={() => { router.push("/pages/about") }} >   About       </Nav.Link>
+                            <Nav.Link onClick={() => { router.push("/pages/blogs") }} >   Blogs       </Nav.Link>
+                            <Nav.Link onClick={() => { router.push("/pages/youtube") }} > Youtube     </Nav.Link>
+                            <Nav.Link onClick={() => { router.push("/pages/contact") }} > Contact Me  </Nav.Link>
                         </Nav>
                         {/* <br /> */}
                         <Nav className="" >

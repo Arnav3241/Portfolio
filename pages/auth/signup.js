@@ -1,8 +1,10 @@
 import { signUp } from "../../contexts/Authentication";
 import { Container, Card, Form } from "react-bootstrap";
-import { toast } from "react-toastify"
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../../contexts/FIrebaseConfig";
 import React, { useState, useRef } from "react";
 import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify"
 import Head from "next/head";
 import Link from "next/link";
 
