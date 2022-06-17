@@ -14,6 +14,7 @@ const logIn = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
 }
 
+// A Authentication Function To Log Out User via Email and Password
 const logOut = () => {
     return signOut(auth);
 };
