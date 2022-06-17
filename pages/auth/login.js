@@ -7,18 +7,18 @@ import Head from "next/head";
 import Link from "next/link";
 
 const Login = () => {
-  const emailRef = useRef();
-  const passwordRef = useRef();
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
   const [loading, setLoading] = useState(false);
 
   const handleLogIn = async () => {
     setLoading(true);
-    if (!emailRef.current.value || !passwordRef.current.value) {
+    if (!emailRef?.current?.value || !passwordRef?.current?.value) {
       toast.error("Please Enter All The Credentials!");
     }
     else {
       try {
-        await logIn(emailRef.current.value, passwordRef.current.value);
+        await logIn(emailRef?.current?.value, passwordRef?.current?.value);
         toast.success("Successfully Loged In to your Account");
       } catch (error) {
         toast.error(error.message);

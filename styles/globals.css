@@ -39,3 +39,10 @@ body{
 .Toastify__toast-container {
   min-width: 25vw;
 }
+
+.vertCtr
+{
+    display: flex;
+    align-items: center;
+    height: 45px;
+}

@@ -1,5 +1,5 @@
 import useMediaQuery from "../contexts/CheckScreenSize";
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { ToastContainer } from "react-toastify";
 import { SSRProvider } from 'react-bootstrap';
 import Navbar from "../components/Navbar";
@@ -9,11 +9,6 @@ import Head from "next/head";
 
 const MyApp = ({ Component, pageProps }) => {
   const isSmallDevice = useMediaQuery(790);
-  const [toastLoaction, setToastLocation] = useState("bottom-right");
-
-  useEffect(() => {
-    isSmallDevice? setToastLocation("top-left") : setToastLocation("bottom-right");
-  }, [isSmallDevice])
 
   return (
     <React.Fragment>
@@ -23,9 +18,15 @@ const MyApp = ({ Component, pageProps }) => {
           <meta name="viewport" content="width=device-width" />
           <link rel="icon" href="/logo.png" />
         </Head>
-        <Navbar />
-        <ToastContainer position={`${toastLoaction}`} style={{ maxWidth: "100vw" }} theme="dark" autoClose={3000} newestOnTop />
-        <Component {...pageProps} />
+        <div style={{ minHeight: "90vh" }} >
+          <Navbar />
+          {isSmallDevice ? 
+            <ToastContainer position="top-left" style={{ maxWidth: "100vw" }} theme="dark" autoClose={3000} newestOnTop />
+              : 
+            <ToastContainer position="bottom-right" style={{ maxWidth: "100vw" }} theme="dark" autoClose={3000} newestOnTop />
+          }
+          <Component {...pageProps} />
+        </div>
         <Footer />
       </SSRProvider>
     </React.Fragment>
