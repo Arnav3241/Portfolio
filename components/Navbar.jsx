@@ -45,10 +45,9 @@ const NavbarHeader = () => {
                             <Nav.Link onClick={() => { router.push("/") }} >              Home        </Nav.Link>
                             <Nav.Link onClick={() => { router.push("/pages/about") }} >   About       </Nav.Link>
                             <Nav.Link onClick={() => { router.push("/pages/blogs") }} >   Blogs       </Nav.Link>
-                            <Nav.Link onClick={() => { router.push("/pages/youtube") }} > Youtube     </Nav.Link>
+                            <Nav.Link onClick={() => { router.push("/pages/courses") }} > Courses     </Nav.Link>
                             <Nav.Link onClick={() => { router.push("/pages/contact") }} > Contact Me  </Nav.Link>
                         </Nav>
-                        {/* <br /> */}
                         <Nav className="" >
                             <div>
                                 {user ? <span style={{ color: "whitesmoke" }} >Hello {displayName}! </span> : null}

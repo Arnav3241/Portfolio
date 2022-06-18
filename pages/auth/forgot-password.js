@@ -23,9 +23,10 @@ const Forgot = () => {
         toast.info("Please Check Your Email's Spam Too!", { autoClose: 6000 });
       } catch (error) {
         toast.error(error.message);
+      } finally {
+        setLoading(false);
       }
     }
-    setLoading(false);
   }
 
   return (
