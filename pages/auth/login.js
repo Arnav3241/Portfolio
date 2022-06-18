@@ -28,10 +28,8 @@ const Login = () => {
   }
 
   return (
-    <div>
-      <Head> <title> Arnav Singh - login </title> </Head>
       <React.Fragment>
-        <Head> <title> Arnav Singh - Sign Up </title> </Head>
+      <Head> <title> Arnav Singh - Log In </title> </Head>
         <Container className="bg-# d-flex align-items-center justify-content-center" style={{ minHeight: '80vh' }}>
           <div className="w-100" style={{ maxWidth: "400px" }}>
             <Card>
@@ -47,21 +45,19 @@ const Login = () => {
                     <Form.Control type="password" autoComplete="new-password" ref={passwordRef} required />
                   </Form.Group>
                   <br />
-                  <button disabled={loading} onClick={handleLogIn} className=" w-100 bg-blue-900  text-white font-semibold  py-2 px-4 border border-blue-500 hover:border-transparent rounded"> Sign Up </button>
+                  <button disabled={loading} onClick={handleLogIn} className=" w-100 bg-blue-900  text-white font-semibold  py-2 px-4 border border-blue-500 hover:border-transparent rounded"> Log In </button>
                 </Form>
-
                 <div className="2-100 text-center mt-2" >
                   <Link href="/auth/forgot-password">Forgot Password?</Link>
                 </div>
               </Card.Body>
             </Card>
             <div className="2-100 text-center mt-2" >
-              Already Have A Account? <Link href="/auth/signin">Sign In</Link>
+              Already Have A Account? <Link href="/auth/signup">Sign Up</Link>
             </div>
           </div>
         </Container>
       </React.Fragment>
-    </div>
   );
 };
 

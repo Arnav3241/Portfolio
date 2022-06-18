@@ -21,9 +21,9 @@ const MyApp = ({ Component, pageProps }) => {
         <div style={{ minHeight: "90vh" }} >
           <Navbar />
           {isSmallDevice ? 
-            <ToastContainer position="top-left" style={{ maxWidth: "100vw" }} theme="dark" autoClose={3000} newestOnTop />
+            <ToastContainer position="top-left" theme="dark" autoClose={3000} newestOnTop />
               : 
-            <ToastContainer position="bottom-right" style={{ maxWidth: "100vw" }} theme="dark" autoClose={3000} newestOnTop />
+            <ToastContainer position="bottom-right" theme="dark" autoClose={3000} newestOnTop />
           }
           <Component {...pageProps} />
         </div>

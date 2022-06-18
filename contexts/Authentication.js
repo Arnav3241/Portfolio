@@ -1,5 +1,5 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
-import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, sendPasswordResetEmail, signOut } from "firebase/auth";
+import { collection, query, where, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db, auth } from "./FIrebaseConfig"
 
@@ -18,6 +18,11 @@ const logIn = (email, password) => {
 const logOut = () => {
     return signOut(auth);
 };
+
+// A Authentication Function To Reset Password via Email
+const resetPassword = (email) => {
+    return sendPasswordResetEmail(auth, email);
+}
 
 const useAuth = () => {
     const [currentUser, setCurrentUser] = useState();
@@ -38,4 +43,4 @@ const getData = async (uid) => {
     } catch (err) { console.log(err) }
 }
 
-export { useAuth, logIn, logOut, getData, signUp };
+export { useAuth, logIn, logOut, getData, signUp, resetPassword };
