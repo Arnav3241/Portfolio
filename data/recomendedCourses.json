@@ -3,7 +3,7 @@
         {
             "key": "rc1",
             "category": "python",
-            "image": "/courses/jarvis.png",
+            "image": "courses/jarvis.png",
             "title": "1",
             "description": "Discription 1",
             "link": ""
