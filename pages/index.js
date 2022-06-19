@@ -1,6 +1,6 @@
 import Recomended from "../components/Courses/RecomendedCourses";
 import { useAuth, getData } from "../contexts/Authentication";
-import courses from '../data/recomendedCourses.json';
+import courses from '../Data/recomendedCourses.json';
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -8,15 +8,6 @@ import Head from 'next/head';
 
 
 const Home = () => {
-
-  const Courses = () => {
-    for (let x in courses["courses"]) {
-      console.log(courses["courses"][x])
-      return <Recomended title={courses["courses"][x].title} description={courses["courses"][x].description} image={courses["courses"][x].image} />
-    }
-  }
-
-
   const user = useAuth();
   const [displayName, setDisplayName] = useState("");
   const router = useRouter();
@@ -41,8 +32,8 @@ const Home = () => {
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
             <Image className="object-cover object-center rounded" alt="Code With Arnav Singh" width={400} height={400} src="/logo.png" />
           </div>
-          <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-left">
-            <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-black">Welcome To <span className="text-blue-500" > Code With Arnav </span> </h1>
+          <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start items-center lg:text-left">
+            <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-black text-center ">Welcome To <span className="text-blue-500" > Code With Arnav </span> </h1>
             <p className="mb-8 text-gray-600 leading-relaxed">Hi{user ? ` ${displayName}` : null}, welcome to Code With Arnav Singh! Do you want to learn languages like HTML, CSS, JS, Python, Node JS, And Frameworks Of Web Development? Don&apos;t worry, we have covered all of it! Wanna Learn Them? No Problem Get The Courses By Clicking The Courses Button below! Also do you want daily blogs no problem click the Blogs button below.</p>
             <div className="flex justify-center content-center">
               <button onClick={() => { router.push("/pages/courses") }} className="bg-black inline-flex text-white border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded text-lg"> Courses </button>

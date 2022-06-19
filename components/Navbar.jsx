@@ -1,5 +1,6 @@
 import { logOut, getData, useAuth } from "../contexts/Authentication";
 import { Navbar, Nav, Container } from "react-bootstrap";
+import useMediaQuery from "../contexts/CheckScreenSize"
 import styles from "./Styles/Navbar.module.css";
 import { useRouter } from 'next/router';
 import React, { useState } from "react";
@@ -11,6 +12,7 @@ const NavbarHeader = () => {
     const router = useRouter();
     const user = useAuth();
     const [displayName, setDisplayName] = useState("");
+    const isSmallDevice = useMediaQuery(790);
 
     const Spacing = ({ space }) => {
         return <span style={{ marginRight: space }}></span>
@@ -56,12 +58,12 @@ const NavbarHeader = () => {
                         </Nav>
                         <Nav className="" >
                             <div>
-                                {user ? <span style={{ color: "whitesmoke" }} >Hello {displayName}! </span> : null}
+                                {user ? <React.Fragment> <span style={{ color: "whitesmoke" }} >Hello {displayName}! </span> </React.Fragment> : null}
+                                {isSmallDevice && user ? <br /> :null}
                                 <Spacing space={10} />
                                 {user ? (
                                     <React.Fragment >
-
-                                        <button onClick={() => { router.push("/auth/user/profile") }} className="bg-blue-900 hover:bg-blue-900 text-white font-semibold  py-2 px-4 border border-blue-500  rounded" variant="light">Profile</button>
+                                        <button onClick={() => { router.push("/auth/user/profile") }} className="bg-blue-900 hover:bg-blue-900 text-white font-semibold mt-2 py-2 px-4 border border-blue-500 rounded" variant="light">Profile</button>
                                         <Spacing space={10} />
                                         <button onClick={Logout} variant="light" className="bg-blue-900 hover:bg-blue-900 text-white font-semibold  py-2 px-4 border border-blue-500  rounded">Log Out</button>
                                     </React.Fragment>
