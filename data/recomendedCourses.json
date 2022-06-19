@@ -3,7 +3,7 @@
         {
             "key": "rc1",
             "category": "python",
-            "image": "/courses/Jarvis.png",
+            "image": "/courses/jarvis.png",
             "title": "1",
             "description": "Discription 1",
             "link": ""
@@ -11,7 +11,7 @@
         {
             "key": "rc2",
             "category": "python",
-            "image": "/courses/Jarvis.png",
+            "image": "/courses/jarvis.png",
             "title": "2",
             "description": "Discription 2",
             "link": ""
@@ -19,7 +19,7 @@
         {
             "key": "rc3",
             "category": "python",
-            "image": "/courses/Jarvis.png",
+            "image": "/courses/jarvis.png",
             "title": "3",
             "description": "Discription 3",
             "link": ""
