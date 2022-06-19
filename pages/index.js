@@ -1,6 +1,6 @@
 import Recomended from "../components/Courses/RecomendedCourses";
 import { useAuth, getData } from "../contexts/Authentication";
-import courses from '../Data/recomendedCourses.json';
+import courses from '../data/recomendedCourses.json';
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
