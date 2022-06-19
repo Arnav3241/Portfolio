@@ -45,7 +45,7 @@ const Home = () => {
       <section className="text-gray-600 body-font">
         <h1 className="title-font text-center sm:text-4xl text-3xl mb-4 font-medium text-black" > Recomended Courses! </h1>
         <div className="container px-5 py-24 -mt-5 mx-auto">
-          <div className="flex flex-wrap -m-4 -mt-24">
+          <div className="flex flex-wrap -m-4 -mt-24 justify-center ">
             {courses["courses"].map(course => {
               return (<Recomended key={course.key} category={course.category} title={course.title} description={course.description} image={course.image} />)
             })}

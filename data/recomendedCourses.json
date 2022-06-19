@@ -2,26 +2,26 @@
     "courses": [
         {
             "key": "rc1",
-            "category": "python",
+            "category": "Python",
             "image": "/Courses/Jarvis.png",
-            "title": "1",
-            "description": "Discription 1",
+            "title": "Make Your Very Own AI, Jarvis!",
+            "description": "Want To Make Your Very Own AI? Join This Free Course To Learn How To Build One!",
             "link": ""
         },
         {
             "key": "rc2",
-            "category": "python",
+            "category": "Python",
             "image": "/Courses/Jarvis.png",
-            "title": "2",
-            "description": "Discription 2",
+            "title": "Make Your Very Own AI, Jarvis!",
+            "description": "Want To Make Your Very Own AI? Join This Free Course To Learn How To Build One!",
             "link": ""
         },
         {
             "key": "rc3",
-            "category": "python",
+            "category": "Python",
             "image": "/Courses/Jarvis.png",
-            "title": "3",
-            "description": "Discription 3",
+            "title": "Make Your Very Own AI, Jarvis!",
+            "description": "Want To Make Your Very Own AI? Join This Free Course To Learn How To Build One!",
             "link": ""
         }
     ]
