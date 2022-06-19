@@ -3,6 +3,7 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import styles from "./Styles/Navbar.module.css";
 import { useRouter } from 'next/router';
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,13 +16,19 @@ const NavbarHeader = () => {
         return <span style={{ marginRight: space }}></span>
     };
 
-    async function Logout() {
-        await logOut();
+    const Logout = async () => {
+        try {
+            await logOut();
+            toast.success("Successfully Logged Out!");
+        } catch (error) {
+            toast.error(error.message);
+        }
     }
 
     if (user) {
         const Data = Promise.resolve(getData(user.uid));
         Data.then(data => {
+            console.log(data)
             setDisplayName(data.Name);
         })
     }

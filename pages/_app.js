@@ -1,6 +1,8 @@
 import useMediaQuery from "../contexts/CheckScreenSize";
+import { useAuth, getData } from "../contexts/Authentication";
+import { ToastContainer, toast } from "react-toastify";
 import React, { useState, useEffect } from 'react';
-import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import LoadingBar from "react-top-loading-bar";
 import { SSRProvider } from 'react-bootstrap';
 import Navbar from "../components/Navbar";
@@ -10,9 +12,24 @@ import '../styles/globals.css';
 import Head from "next/head";
 
 const App = ({ Component, pageProps }) => {
-  const isSmallDevice = useMediaQuery(790);
+  const [displayName, setDisplayName] = useState("");
   const [ progress, setProgress ] = useState(0);
+  const isSmallDevice = useMediaQuery(790);
+  const user = useAuth();
   const router = useRouter();
+  
+  if (user) {
+    const Data = Promise.resolve(getData(user.uid));
+    Data.then(data => {
+        setDisplayName(data.Name);
+    })
+  }
+  
+  useEffect(() => {
+    if (router.pathname === "/") {
+      toast.success(`Welcome Back ${displayName} to Code With Arnav Singh`);
+    }
+  }, [router.pathname, displayName])
 
   useEffect(() => {
     router.events.on('routeChangeStart', () => {
@@ -36,10 +53,8 @@ const App = ({ Component, pageProps }) => {
         {/* React Notification */} {isSmallDevice ? <ToastContainer position="top-left" theme="dark" autoClose={3000} newestOnTop /> : <ToastContainer position="bottom-right" theme="dark" autoClose={3000} newestOnTop /> }
         {/* React Top Loading Bar */} <LoadingBar color='#f11946' progress={progress} onLoaderFinished={() => setProgress(0)} waitingTime={400} />
 
-        <div style={{ minHeight: "90vh" }} >
-          <Navbar />
-          <Component {...pageProps} />
-        </div>
+        <Navbar />
+        <Component {...pageProps} />
 
         {/* Footer Of Out Website */} <Footer />
       </SSRProvider>

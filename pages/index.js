@@ -14,7 +14,7 @@ const Home = () => {
     Data.then(data => {
         setDisplayName(data.Name);
     })
-}
+  }
 
   return (
     <div>
