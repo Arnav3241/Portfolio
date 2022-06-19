@@ -28,7 +28,6 @@ const NavbarHeader = () => {
     if (user) {
         const Data = Promise.resolve(getData(user.uid));
         Data.then(data => {
-            console.log(data)
             setDisplayName(data.Name);
         })
     }

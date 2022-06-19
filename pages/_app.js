@@ -12,25 +12,20 @@ import '../styles/globals.css';
 import Head from "next/head";
 
 const App = ({ Component, pageProps }) => {
-  const [displayName, setDisplayName] = useState("");
   const [ progress, setProgress ] = useState(0);
   const isSmallDevice = useMediaQuery(790);
   const user = useAuth();
   const router = useRouter();
   
-  if (user) {
-    const Data = Promise.resolve(getData(user.uid));
-    Data.then(data => {
-        setDisplayName(data.Name);
-    })
-  }
-  
   useEffect(() => {
-    if (router.pathname === "/") {
-      toast.success(`Welcome Back ${displayName} to Code With Arnav Singh`);
+    if (user) {
+      const Data = Promise.resolve(getData(user.uid));
+      Data.then(data => {
+          toast.success(`Welcome Back ${data.Name} to Code With Arnav Singh`);
+      })
     }
-  }, [router.pathname, displayName])
-
+  }, [user])
+  
   useEffect(() => {
     router.events.on('routeChangeStart', () => {
       setProgress(30);

@@ -45,6 +45,7 @@ const Signup = () => {
           Email: emailRef.current.value,
           Created_At: String(new Date())
         });
+        
         toast.success("Successfully Created a Account");
       } catch (error) {
         toast.error(error.message)
@@ -101,8 +102,8 @@ const Signup = () => {
                   </div>
                 </Card.Body>
               </Card>
-            </React.Fragment>}
-
+            </React.Fragment>
+          }
         </div>
       </Container>
     </React.Fragment>
