@@ -77,8 +77,8 @@ const Login = () => {
                   <h2> You can&apos;t access this page right now as you are already logged in as {displayName} with email id: {user.email}. </h2>
                   <br />
                   <div className="flex justify-center content-center">
-                    <button onClick={() => { router.push("/pages/courses") }} className="bg-blue-900 text-white border-0 py-2 px-6 focus:outline-none rounded-1 text-lg"> Dashboard </button>
-                    <button onClick={() => { router.push("/pages/blogs") }} className="ml-4 bg-blue-900 text-white  border-2 border-black py-2 px-6 rounded-1 text-lg"> Courses </button>
+                    <button onClick={() => { router.push("/") }} className="bg-blue-900 text-white border-0 py-2 px-6 focus:outline-none rounded-1 text-lg"> Dashboard </button>
+                    <button onClick={() => { router.push("/pages/courses") }} className="ml-4 bg-blue-900 text-white  border-2 border-black py-2 px-6 rounded-1 text-lg"> Courses </button>
                   </div>
                 </Card.Body>
               </Card>
