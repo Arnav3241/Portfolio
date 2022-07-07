@@ -50,11 +50,11 @@ const NavbarHeader = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse className="text-center" id="responsive-navbar-nav">
                         <Nav className="me-auto Navbar-Links">
-                            <Nav.Link onClick={() => { router.push("/") }} >              Home        </Nav.Link>
-                            <Nav.Link onClick={() => { router.push("/pages/about") }} >   About       </Nav.Link>
-                            <Nav.Link onClick={() => { router.push("/pages/blogs") }} >   Blogs       </Nav.Link>
-                            <Nav.Link onClick={() => { router.push("/pages/courses") }} > Courses     </Nav.Link>
-                            <Nav.Link onClick={() => { router.push("/pages/contact") }} > Contact Me  </Nav.Link>
+                            <Nav.Link onClick={() => { router.push("/") }} >        Home        </Nav.Link>
+                            <Nav.Link onClick={() => { router.push("/about") }} >   About       </Nav.Link>
+                            <Nav.Link onClick={() => { router.push("/blogs") }} >   Blogs       </Nav.Link>
+                            <Nav.Link onClick={() => { router.push("/cources") }} > Courses     </Nav.Link>
+                            <Nav.Link onClick={() => { router.push("/contact") }} > Contact Me  </Nav.Link>
                         </Nav>
                         <Nav className="" >
                             <div>
@@ -63,15 +63,15 @@ const NavbarHeader = () => {
                                 <Spacing space={10} />
                                 {user ? (
                                     <React.Fragment >
-                                        <button onClick={() => { router.push("/auth/user/profile") }} className="bg-blue-900 hover:bg-blue-900 text-white font-semibold mt-2 py-2 px-4 border border-blue-500 rounded" variant="light">Profile</button>
+                                        <button onClick={() => { router.push("/profile") }} className="bg-blue-900 hover:bg-blue-900 text-white font-semibold mt-2 py-2 px-4 border border-blue-500 rounded" variant="light">Profile</button>
                                         <Spacing space={10} />
                                         <button onClick={Logout} variant="light" className="bg-blue-900 hover:bg-blue-900 text-white font-semibold  py-2 px-4 border border-blue-500  rounded">Log Out</button>
                                     </React.Fragment>
                                 ) : (
                                     <React.Fragment>
-                                        <button onClick={() => { router.push("/auth/login") }} variant="light" className="bg-blue-900 hover:bg-blue-900 text-white font-semibold  py-2 px-4 border border-blue-500  rounded">Log In</button>
+                                        <button onClick={() => { router.push("/login") }} variant="light" className="bg-blue-900 hover:bg-blue-900 text-white font-semibold  py-2 px-4 border border-blue-500  rounded">Log In</button>
                                         <Spacing space={10} />
-                                        <button onClick={() => { router.push("/auth/signup") }} variant="light" className="bg-blue-900 hover:bg-blue-900 text-white font-semibold  py-2 px-4 border border-blue-500  rounded">Sign Up</button>
+                                        <button onClick={() => { router.push("/signup") }} variant="light" className="bg-blue-900 hover:bg-blue-900 text-white font-semibold  py-2 px-4 border border-blue-500  rounded">Sign Up</button>
                                     </React.Fragment>
                                 )}
                             </div>

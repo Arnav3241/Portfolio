@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-const blogs = () => {
+const Blogs = () => {
   return (
     <div>
       <Head> 
@@ -14,4 +14,4 @@ const blogs = () => {
   );
 };
 
-export default blogs;
+export default Blogs;

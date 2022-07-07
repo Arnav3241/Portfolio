@@ -1,4 +1,4 @@
-import { resetPassword } from "../../contexts/Authentication";
+import { resetPassword } from "../contexts/Authentication";
 import { Container, Card, Form } from "react-bootstrap";
 import React, { useState, useRef } from "react";
 import 'react-toastify/dist/ReactToastify.css';
@@ -47,12 +47,12 @@ const Forgot = () => {
                   <button disabled={loading} onClick={handleLogIn} className=" w-100 bg-blue-900  text-white font-semibold  py-2 px-4 border border-blue-500 hover:border-transparent rounded"> Send Password Reset Mail! </button>
                 </Form>
                 <div className="2-100 text-center mt-2" >
-                  <Link href="/auth/login">Log In</Link>
+                  <Link href="/login">Log In</Link>
                 </div>
               </Card.Body>
             </Card>
             <div className="2-100 text-center mt-2" >
-              Already Have A Account? <Link href="/auth/signup">Sign Up</Link>
+              Already Have A Account? <Link href="/signup">Sign Up</Link>
             </div>
           </div>
         </Container>

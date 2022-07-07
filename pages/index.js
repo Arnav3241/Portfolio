@@ -22,7 +22,7 @@ const Home = () => {
   return (
     <div>
       <Head>
-        <title> Arnav Singh - Home | Welcome To our Website! </title>
+        <title> Arnav Singh - Home </title>
         <meta name='author' content='Arnav Singh' />
         <meta name='description' content='Hi! I Am Arnav Singh And This Is My Portfolio Code With Arnav Singh! Here You Can Find Many Courses And Feel Free To Use them as They are all free to use! Here I Teach many coding related stuff such as HTML, CSS, JS and many frameworks of them like react js (React.js), next js (Next.js) angular, cloud services such as AWS, Firebase, etc. I Also Teact Python where we build GUIs Machine Learning, Artificial Intelegence, Deep Learning, Neural Networks Using Frameworks Of Python. Also There Is A Mega Project of This channel named Jarvis (J.A.R.V.I.S) Everyone should once check out!' />
         <meta name='keywords' content='' />
@@ -36,8 +36,8 @@ const Home = () => {
             <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-black text-center ">Welcome To <span className="text-blue-500" > Code With Arnav </span> </h1>
             <p className="mb-8 text-gray-600 leading-relaxed">Hi{user ? ` ${displayName}` : null}, welcome to Code With Arnav Singh! Do you want to learn languages like HTML, CSS, JS, Python, Node JS, And Frameworks Of Web Development? Don&apos;t worry, we have covered all of it! Wanna Learn Them? No Problem Get The Courses By Clicking The Courses Button below! Also do you want daily blogs no problem click the Blogs button below.</p>
             <div className="flex justify-center content-center">
-              <button onClick={() => { router.push("/pages/courses") }} className="bg-black inline-flex text-white border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded text-lg"> Courses </button>
-              <button onClick={() => { router.push("/pages/blogs") }} className="ml-4 inline-flex bg-black text-white  border-0 py-2 px-6 focus:outline-none rounded text-lg"> Blogs </button>
+              <button onClick={() => { router.push("/courses") }} className="bg-black inline-flex text-white border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded text-lg"> Courses </button>
+              <button onClick={() => { router.push("/blogs") }} className="ml-4 inline-flex bg-black text-white  border-0 py-2 px-6 focus:outline-none rounded text-lg"> Blogs </button>
             </div>
           </div>
         </div>
