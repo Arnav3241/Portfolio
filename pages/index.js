@@ -22,7 +22,7 @@ const Home = () => {
   return (
     <div>
       <Head>
-        <title> Arnav Singh - Home | Welcome To our Website </title>
+        <title> Arnav Singh - Home | Welcome To our Website! </title>
         <meta name='author' content='Arnav Singh' />
         <meta name='description' content='Hi! I Am Arnav Singh And This Is My Portfolio Code With Arnav Singh! Here You Can Find Many Courses And Feel Free To Use them as They are all free to use! Here I Teach many coding related stuff such as HTML, CSS, JS and many frameworks of them like react js (React.js), next js (Next.js) angular, cloud services such as AWS, Firebase, etc. I Also Teact Python where we build GUIs Machine Learning, Artificial Intelegence, Deep Learning, Neural Networks Using Frameworks Of Python. Also There Is A Mega Project of This channel named Jarvis (J.A.R.V.I.S) Everyone should once check out!' />
         <meta name='keywords' content='' />
