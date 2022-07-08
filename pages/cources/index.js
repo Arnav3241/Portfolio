@@ -1,6 +1,6 @@
-import Recomended from "../../components/Courses/RecomendedCourses";
+// import Recomended from "../../components/Courses/RecomendedCourses";
 import { useAuth, getData } from "../../contexts/Authentication";
-import courses from '../../data/courses.json';
+// import courses from '../../data/courses.json';
 import React, { useState } from "react";
 import Head from "next/head";
 
@@ -31,9 +31,9 @@ const Course = () => {
         </p>
         <div className="container px-5 py-24 -mt-5 mx-auto">
           <div className="flex flex-wrap -m-4 -mt-24 justify-center ">
-            {courses["courses"].map(course => {
+            {/* {courses["courses"].map(course => {
               return (<Recomended key={course.key} category={course.category} title={course.title} description={course.description} image={course.image} />)
-            })}
+            })} */}
           </div>
         </div>
       </section>

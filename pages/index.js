@@ -1,17 +1,24 @@
 import Recomended from "../components/Courses/RecomendedCourses";
 import { useAuth, getData } from "../contexts/Authentication";
-import courses from '../data/recomendedCourses.json';
-import React, { useState } from "react";
+import React, { useState, useId } from "react";
 import { useRouter } from "next/router";
+import { createClient } from "next-sanity";
+import imageUrlBuilder from "@sanity/image-url";
 import Image from "next/image";
 import Head from 'next/head';
 
+const Home = ({ course }) => {
+  const client = createClient({
+    projectId: "e4xrshwm",
+    dataset: "production",
+    useCdn: false
+  });
 
-const Home = () => {
   const user = useAuth();
   const [displayName, setDisplayName] = useState("");
   const router = useRouter();
-
+  const builder = imageUrlBuilder(client)
+  
   if (user) {
     const Data = Promise.resolve(getData(user.uid));
     Data.then(data => {
@@ -46,8 +53,8 @@ const Home = () => {
         <h1 className="title-font text-center sm:text-4xl text-3xl mb-4 font-medium text-black" > Recomended Courses! </h1>
         <div className="container px-5 py-24 -mt-5 mx-auto">
           <div className="flex flex-wrap -m-4 -mt-24 justify-center ">
-            {courses["courses"].map(course => {
-              return (<Recomended key={course.key} category={course.category} title={course.title} description={course.description} image={course.image} />)
+            {course.map((course, index) => {
+              return (<Recomended key={useId} category={course.category} title={course.title} description={`${course.description}`} image={builder.image(course.mainImage)} link={`/cources/${course.slug.current}`} />)
             })}
           </div>
         </div>
@@ -57,3 +64,18 @@ const Home = () => {
 };
 
 export default Home;
+
+export async function getServerSideProps(context) {
+  const client = createClient({
+    projectId: "e4xrshwm",
+    dataset: "production",
+    useCdn: false
+  });
+  const query = `*[_type == "courses"] | order(_createdAt desc) `;
+  const course = await client.fetch(query);
+  return {
+    props: {
+      course
+    }
+  }
+}
