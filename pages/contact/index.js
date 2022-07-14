@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
 
 const Contact = () => {
   return (
-    <div>contact</div>
+    <React.Fragment>
+
+    </React.Fragment>
   )
 }
 

@@ -1,5 +1,5 @@
-import Recomended from "../components/Courses/RecomendedCourses";
 import { useAuth, getData } from "../contexts/Authentication";
+import Recomended from "../components/Recomended";
 import imageUrlBuilder from "@sanity/image-url";
 import React, { useState, useId } from "react";
 import { createClient } from "next-sanity";

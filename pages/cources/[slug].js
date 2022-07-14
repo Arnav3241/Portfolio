@@ -10,7 +10,11 @@ const courceSlug = (courseContent) => {
     )
   } else {
     return (
-      <div>slug</div>
+      <div>
+        <React.Fragment>
+          
+        </React.Fragment>
+      </div>
     )
   }
 }
