@@ -18,7 +18,7 @@ const Home = ({ course }) => {
   const user = useAuth();
   const [displayName, setDisplayName] = useState("");
   const router = useRouter();
-  const builder = imageUrlBuilder(client)
+  const builder = imageUrlBuilder(client);
 
   if (user) {
     const Data = Promise.resolve(getData(user.uid));
@@ -52,12 +52,12 @@ const Home = ({ course }) => {
       </section>
       {course.length > 0 ? <React.Fragment>
         <section className="text-gray-600 body-font">
-          <h1 className="title-font text-center sm:text-4xl text-3xl mb-4 font-medium text-black" > Recomended Courses! </h1>
+          <h1 className="text-center sm:text-4xl text-3xl mb-4 font-medium text-black" > Recomended Courses! </h1>
           <div className="container px-5 py-24 -mt-5 mx-auto">
-            <div className="flex flex-wrap -m-4 -mt-24 justify-center ">
+            <div className="flex flex-wrap -m-4 -mt-24 justify-center">
               {course.map((course) => {
                 return (
-                  <Recomended key={useId} category={course.category} title={course.title} description={`${course.description}`} image={builder.image(course.mainImage)} link={`/cources/${course.slug.current}`} />
+                  <Recomended key={useId} category={course.category} title={course.title} description={`${course.description}`} image={builder.image(course.mainImage)} link={`/courses/${course.slug.current}`} />
                 );
               })}
             </div>

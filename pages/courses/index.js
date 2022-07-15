@@ -39,7 +39,7 @@ const Course = ({ course }) => {
       <section className="text-gray-600 body-font ">
         <h1 className="title-font text-center sm:text-4xl text-3xl mb-4 font-medium text-black" > Courses </h1>
         <p className="text-center container max-w-3xl" >
-          So{displayName ? <span> {displayName}</span> : null}, decided to pick up a new course. Select any one of these courses to learn more. Don&#39;t worry, you can always go back and change your mind. There are plenty of options also. So get ready with your laptop/desktop and start learning today at <Link className="courcesWebsite" href={`/`} >arnav.vercel.app</Link>.
+          So{displayName ? <span> {displayName}</span> : null}, decided to pick up a new course. Select any one of these courses to learn more. Don&#39;t worry, you can always go back and change your mind. There are plenty of options also. So get ready with your laptop/desktop and start learning today at arnav.vercel.app.
         </p>
         <br />
         {course.length > 0 ? <React.Fragment>
@@ -48,7 +48,7 @@ const Course = ({ course }) => {
               <div className="flex flex-wrap -m-4 -mt-24 justify-center ">
                 {course.map((course) => {
                   return (
-                    <Recomended key={useId} category={course.category} title={course.title} description={`${course.description}`} image={builder.image(course.mainImage)} link={`/cources/${course.slug.current}`} />
+                    <Recomended key={useId} category={course.category} title={course.title} description={`${course.description}`} image={builder.image(course.mainImage)} link={`/courses/${course.slug.current}`} />
                   );
                 })}
               </div>
