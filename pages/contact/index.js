@@ -1,6 +1,5 @@
 import Styles from "./index.module.css";
 import React from 'react';
-import Image from "next/image";
 
 const Contact = () => {
   return (
@@ -8,7 +7,7 @@ const Contact = () => {
       <section className="contact text-center " id="contact">
         <div className={`${Styles.Row}`}>
           <div className={`${Styles.Image}`}>
-            <Image className="mx-8" src="/assets/Contact.svg" alt="Contact Img" />
+            <img className="mx-8" src="/assets/Contact.svg" alt="Contact Img" />
           </div>
           <div className={`${Styles.Form}`} style={{ marginRight: "5vw", marginLeft: "5vw", maxHeight: "80vh" }} >
             <h1 className="heading text-4xl font-medium capitalize mt-1 mb-3"> contact <span className="text-blue-500" > me </span> </h1>
