@@ -60,7 +60,7 @@ export const getServerSideProps = async (context) => {
     dataset: "production",
     useCdn: false
   });
-  const courseContentQuery = `* [_type == "courseContent" && courseCategory == "${slug}"] | order(_createdAt desc)`
+  const courseContentQuery = `* [_type == "courseContent" && courseCategory == "${slug}"] | order(_createdAt asc)`
   const courseContent = await client.fetch(courseContentQuery);
   return {
     props: {
