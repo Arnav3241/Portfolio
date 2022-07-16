@@ -64,7 +64,10 @@ export const getServerSideProps = async (context) => {
     useCdn: false
   });
   const courseContentQuery = `* [_type == "courseContent" && courseCategory == "${slug}"] | order(_createdAt asc)`
+<<<<<<< HEAD
   const courseQuery = `* [_type == "course" && courseCategory == "${slug}"]`
+=======
+>>>>>>> 125e5a39d2863e0be4c0889954df660cf4440e3a
   const courseContent = await client.fetch(courseContentQuery);
   const course = await client.fetch(courseQuery);
   return {
