@@ -1,0 +1,33 @@
+.Row
+{
+    display:flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:1.5rem;
+}
+
+.Image
+{
+    flex:1 1 40rem;
+}
+
+.Form
+{
+    flex:1 1 40rem;
+    padding:1rem 2rem;
+    border: 2.3px solid #212529;
+    border-radius: 1rem;
+    background:#fff;
+}
+
+.InputBox
+{
+    width:100%;
+    border-radius: .5rem;
+    font-size: 1.2rem;
+    color:#333;
+    margin: 10px;
+    padding: 7px;
+    border:.1rem solid rgba(0,0,0,.1);
+    text-transform: none;
+}

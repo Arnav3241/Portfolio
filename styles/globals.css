@@ -46,3 +46,7 @@ body{
     align-items: center;
     height: 45px;
 }
+
+.InputBox:focus{
+    border-color: var(--green);
+}
