@@ -3,8 +3,7 @@ import React from 'react';
 
 const Admin = () => {
   useEffect(() => {
-    const win: Window = window;
-    win.location = "http://localhost:3333/desk";
+    window.location = "http://localhost:3333/desk";
   }, [])
   return (
     <div>
