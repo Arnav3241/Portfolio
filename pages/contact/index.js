@@ -4,7 +4,7 @@ import React from 'react';
 const Contact = () => {
   return (
     <React.Fragment>
-      <section className="contact text-center " id="contact">
+      <section className="contact text-center mt-5" id="contact">
         <div className={`${Styles.Row}`}>
           <div className={`${Styles.Image}`}>
             <img className="mx-8" src="/assets/Contact.svg" alt="Contact Img" />

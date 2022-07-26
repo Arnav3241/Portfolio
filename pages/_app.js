@@ -3,11 +3,11 @@ import useMediaQuery from "../contexts/CheckScreenSize";
 import { ToastContainer, toast } from "react-toastify";
 import React, { useState, useEffect } from 'react';
 import 'react-loading-skeleton/dist/skeleton.css';
+import Footer from '../components/Basic/Footer';
+import Navbar from "../components/Basic/Navbar";
 import 'react-toastify/dist/ReactToastify.css';
 import LoadingBar from "react-top-loading-bar";
 import { SSRProvider } from 'react-bootstrap';
-import Navbar from "../components/Navbar";
-import Footer from '../components/Footer';
 import { useRouter } from "next/router";
 import '../styles/globals.css';
 import Head from "next/head";
@@ -20,9 +20,9 @@ const App = ({ Component, pageProps }) => {
 
   useEffect(() => {
     if (user) {
-      const Data = Promise.resolve(getData(user.uid));
+      const Data = Promise.resolve(getData(user["uid"]));
       Data.then(data => {
-        toast.success(`Welcome Back ${data.Name} to Code With Arnav Singh`);
+        toast.success(`Welcome Back ${data?.Name} to Code With Arnav Singh`);
       })
     }
   }, [user])

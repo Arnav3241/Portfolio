@@ -1,7 +1,7 @@
-import { logOut, getData, useAuth } from "../contexts/Authentication";
+import { logOut, getData, useAuth } from "../../contexts/Authentication";
+import useMediaQuery from "../../contexts/CheckScreenSize";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import useMediaQuery from "../contexts/CheckScreenSize"
-import styles from "./Styles/Navbar.module.css";
+import styles from "../Styles/Navbar.module.css";
 import { useRouter } from 'next/router';
 import React, { useState } from "react";
 import { toast } from "react-toastify";

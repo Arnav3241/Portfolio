@@ -1,24 +1,25 @@
 import { resetPassword } from "../contexts/Authentication";
-import { Container, Card, Form } from "react-bootstrap";
+// import { Container, Card, Form } from "react-bootstrap"
+import {  } from "react-bootstrap"
 import React, { useState, useRef } from "react";
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
 import Head from "next/head";
 import Link from "next/link";
-
+ 
 const Forgot = () => {
   const [loading, setLoading] = useState(false);
   const emailRef = useRef();
 
   const handleLogIn = async () => {
     setLoading(true);
-    if (!emailRef?.current?.value) {
+    if (!emailRef?.current.value) {
       toast.error("Please Enter All The Credentials!");
     }
     else {
       try {
-        await resetPassword(emailRef.current.value);
-        toast.success(`Successfully Sent Email to ${emailRef.current.value}`, { autoClose: 6000 });
+        await resetPassword(emailRef?.current?.value);
+        toast.success(`Successfully Sent Email to ${emailRef?.current?.value}`, { autoClose: 6000 });
         toast.info("Please Check Your Email's Inbox!", { autoClose: 6000 });
         toast.info("Please Check Your Email's Spam Too!", { autoClose: 6000 });
       } catch (error) {
@@ -40,7 +41,7 @@ const Forgot = () => {
                 <h1 className='text-3xl text-center mb-4'> <span className="text-sm" > Did you just </span> Forgot Password? </h1>
                 <Form>
                   <Form.Group id="email" >
-                    <Form.Label className="mb-1" > E-mail: </Form.Label>
+                    <Form.Label className="mb-1"> E-mail: </Form.Label>
                     <Form.Control type="email" autoComplete="email" ref={emailRef} required />
                   </Form.Group>
                   <br />

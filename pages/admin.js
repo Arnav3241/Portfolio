@@ -1,8 +1,10 @@
-import { useEffect } from 'react'
+import { useEffect } from 'react';
+import React from 'react';
 
 const Admin = () => {
   useEffect(() => {
-    window.location = "http://localhost:3333/desk"
+    const win: Window = window;
+    win.location = "http://localhost:3333/desk";
   }, [])
   return (
     <div>

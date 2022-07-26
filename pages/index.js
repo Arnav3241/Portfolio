@@ -1,5 +1,5 @@
 import { useAuth, getData } from "../contexts/Authentication";
-import Recomended from "../components/Recomended";
+import Recomended from "../components/Basic/Recomended";
 import imageUrlBuilder from "@sanity/image-url";
 import React, { useState, useId } from "react";
 import { createClient } from "next-sanity";
@@ -21,11 +21,11 @@ const Home = ({ course }) => {
   const builder = imageUrlBuilder(client);
 
   if (user) {
-    const Data = Promise.resolve(getData(user.uid));
+    const Data = Promise.resolve(getData(user["uid"]));
     Data.then(data => {
-      setDisplayName(data.Name);
+      setDisplayName(data?.Name);
     })
-  }
+  };
 
   return (
     <div>
@@ -37,15 +37,15 @@ const Home = ({ course }) => {
       </Head>
       <section className="text-gray-600 body-font">
         <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0" style={{ width: "400px", height: "400px" }} >
             <Image className="object-cover object-center rounded" alt="Code With Arnav Singh" width={400} height={400} src="/logo.png" />
           </div>
           <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start items-center lg:text-left">
             <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-black text-center ">Welcome To <span className="text-blue-500" > Code With Arnav </span> </h1>
             <p className="mb-8 text-gray-600 leading-relaxed">Hi{user ? ` ${displayName}` : null}, welcome to Code With Arnav Singh! Do you want to learn languages like HTML, CSS, JS, Python, Node JS, And Frameworks Of Web Development? Don&apos;t worry, we have covered all of it! Wanna Learn Them? No Problem Get The Courses By Clicking The Courses Button below! Also do you want daily blogs no problem click the Blogs button below.</p>
             <div className="flex justify-center content-center">
-              <button onClick={() => { router.push("/courses") }} className="bg-black inline-flex text-white border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded text-lg"> Courses </button>
-              <button onClick={() => { router.push("/blogs") }} className="ml-4 inline-flex bg-black text-white  border-0 py-2 px-6 focus:outline-none rounded text-lg"> Blogs </button>
+              <button onClick={() => { router?.push("/courses") }} className="bg-black inline-flex text-white border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded text-lg"> Courses </button>
+              <button onClick={() => { router?.push("/blogs") }} className="ml-4 inline-flex bg-black text-white  border-0 py-2 px-6 focus:outline-none rounded text-lg"> Blogs </button>
             </div>
           </div>
         </div>
@@ -57,13 +57,16 @@ const Home = ({ course }) => {
             <div className="flex flex-wrap -m-4 -mt-24 justify-center">
               {course.map((course) => {
                 return (
-                  <Recomended key={useId} category={course.category} title={course.title} description={`${course.description}`} image={builder.image(course.mainImage)} link={`/courses/${course.slug.current}`} />
+                  <Recomended key={useId()} category={course.category} title={course.title} description={`${course.description}`} image={builder.image(course.mainImage)} link={`/courses/${course.slug.current}`} />
                 );
               })}
             </div>
           </div>
         </section>
       </React.Fragment> : null}
+
+
+
     </div>
   );
 };

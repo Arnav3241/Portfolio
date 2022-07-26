@@ -1,5 +1,5 @@
+import BreadCrums from "../../components/Specialised/BreadCrums";
 import { useAuth, getData } from "../../contexts/Authentication";
-// import Recomended from "../../components/Recomended";
 import imageUrlBuilder from "@sanity/image-url";
 import Skeleton from "react-loading-skeleton";
 import { createClient } from "next-sanity";
@@ -36,8 +36,8 @@ const Course = ({ course }) => {
         <meta name='description' content='Explore The Best Courses In The World To Become The Best' />
         <meta name='keywords' content='Arnav singh' />
       </Head>
-      <br />
-      <section className="text-gray-600 body-font ">
+      <BreadCrums typeNo={2} title1={`Home`} title2={`Courses`} link1={`/`} link2={`/courses/`} />
+      <section className="text-gray-600 body-font mt-1">
         <h1 className="title-font text-center sm:text-4xl text-3xl mb-4 font-medium text-black capitalize" > Courses </h1>
         <p className="text-center container max-w-3xl" >
           So{displayName ? <span> {displayName}</span> : null}, decided to pick up a new course. Select any one of these courses to learn more. Don&#39;t worry, you can always go back and change your mind. There are plenty of options also. So get ready with your laptop/desktop and start learning today at arnav.vercel.app.
