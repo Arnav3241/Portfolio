@@ -20,7 +20,7 @@ const courseSlug = (courseContent) => {
     useCdn: false
   });
 
-  const isSmallDevice = useMediaQuery(1000);
+  const isSmallDevice = useMediaQuery(850);
   const builder = imageUrlBuilder(client);
   const Router = useRouter();
 
@@ -90,10 +90,11 @@ const courseSlug = (courseContent) => {
               <div className="mr-5 ml-5" style={{ width: `${isSmallDevice ? `95%` : `75vw`}` , alignItems: "center"}} >
                 <iframe 
                   style={{ 
-                    width: `${isSmallDevice ? `95%` : `75vw`}`, 
+                    width: `${isSmallDevice ? `95%` : `55vw`}`, 
                     height: `${!isSmallDevice ? `25rem` : `15rem`}`, 
                     alignSelf: "center" 
                   }} 
+                  className={`border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden ${!isSmallDevice?`ml-32`:``}`}
                   src="https://www.youtube.com/embed/rsHq4NPDEs0" 
                   title="Redis: This can change your Database Game - Here how!" 
                   frameborder="0" 
