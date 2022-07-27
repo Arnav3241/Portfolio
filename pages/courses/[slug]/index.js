@@ -86,8 +86,8 @@ const courseSlug = (courseContent) => {
             />
             <h1 className='text-4xl text-center mt-3'> {element.title} </h1>
             <br />
-            <div className="flex justify-center" >
-              <div className="mr-5 ml-5" style={{ width: `${isSmallDevice ? `95%` : `75vw`}` , alignItems: "center"}} >
+            <div className="flex" >
+              <div className="mr-5 ml-5" style={{ width: `${isSmallDevice ? `95%` : `75vw`}`}} >
                 <iframe 
                   style={{ 
                     width: `${isSmallDevice ? `95%` : `55vw`}`, 
@@ -95,19 +95,42 @@ const courseSlug = (courseContent) => {
                     alignSelf: "center" 
                   }} 
                   className={`border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden ${!isSmallDevice?`ml-32`:``}`}
-                  src="https://www.youtube.com/embed/rsHq4NPDEs0" 
-                  title="Redis: This can change your Database Game - Here how!" 
+                  src={`${element.ytubeVideo}`} 
                   frameborder="0" 
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowfullscreen 
+                  allowfullscreen9
                 />
                 <br />
+                <PortableText content={element.body} className="text-center" />
+                <PortableText content={element.body} className="text-center" />
+                <PortableText content={element.body} className="text-center" />
+                <PortableText content={element.body} className="text-center" />
+                <PortableText content={element.body} className="text-center" />
+                <PortableText content={element.body} className="text-center" />
+                <PortableText content={element.body} className="text-center" />
+                <PortableText content={element.body} className="text-center" />
+                <PortableText content={element.body} className="text-center" />
+                <PortableText content={element.body} className="text-center" />
+                <PortableText content={element.body} className="text-center" />
+                <PortableText content={element.body} className="text-center" />
+                <PortableText content={element.body} className="text-center" />
                 <PortableText content={element.body} className="text-center" />
               </div>
               {!isSmallDevice ?
                 <React.Fragment>
-                  <div className="bg-slate-600 mr-5 ml-5" style={{ width: "20vw", height: "25rem" }} >
-
+                  <div className="bg-slate-50 mr-5 ml-5 overflow-y-scroll border-8 fixed" style={{ width: "20vw", maxHeight: "25rem", right: "20px" }} >
+                    <div className="p-6 border-black border-2 h-5 m-1"></div>
+                    <div className="p-6 border-black border-2 h-5 m-1"></div>
+                    <div className="p-6 border-black border-2 h-5 m-1"></div>
+                    <div className="p-6 border-black border-2 h-5 m-1"></div>
+                    <div className="p-6 border-black border-2 h-5 m-1"></div>
+                    <div className="p-6 border-black border-2 h-5 m-1"></div>
+                    <div className="p-6 border-black border-2 h-5 m-1"></div>
+                    <div className="p-6 border-black border-2 h-5 m-1"></div>
+                    <div className="p-6 border-black border-2 h-5 m-1"></div>
+                    <div className="p-6 border-black border-2 h-5 m-1"></div>
+                    <div className="p-6 border-black border-2 h-5 m-1"></div>
+                    <div className="p-6 border-black border-2 h-5 m-1"></div>
                   </div>
                 </React.Fragment>
                 :
