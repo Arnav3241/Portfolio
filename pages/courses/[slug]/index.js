@@ -23,7 +23,6 @@ const courseSlug = (courseContent) => {
   const isSmallDevice = useMediaQuery(1000);
   const builder = imageUrlBuilder(client);
   const Router = useRouter();
-  console.log(courseContent);
 
   if (courseContent.courseContent.length == 0) {
     return (
@@ -74,27 +73,39 @@ const courseSlug = (courseContent) => {
       if (element.slug.current == Router.query.tutorial) {
         return (
           <React.Fragment>
-            <br />
             <BreadCrums
-              typeNo={4}
-              title1={`Home`}
-              title2={`Courses`}
+              typeNo={!isSmallDevice ? 4 : 2}
+              title1={isSmallDevice ? `... ${capitalizeFirstLetter(courseContent["courseContent"][0]["courseCategory"])} ` : `Home`}
+              title2={isSmallDevice ? element.title : `Courses`}
               title3={capitalizeFirstLetter(courseContent["courseContent"][0]["courseCategory"])}
               title4={element.title}
-              link1={`/`}
-              link2={`/courses`}
+              link1={isSmallDevice ? `/courses/${courseContent["courseContent"][0]["courseCategory"]}` : `/`}
+              link2={isSmallDevice ? `/courses/${courseContent["courseContent"][0]["courseCategory"]}?tutorial=${element.slug.current}` : `/courses`}
               link3={`/courses/${courseContent["courseContent"][0]["courseCategory"]}`}
               link4={`/courses/${courseContent["courseContent"][0]["courseCategory"]}?tutorial=${element.slug.current}`}
             />
             <h1 className='text-4xl text-center mt-3'> {element.title} </h1>
             <br />
-            <div className="flex" >
-              <div className="bg-slate-600 h-96 mr-5 ml-5" style={{ width: `${isSmallDevice?`95%`:`75vw`}` }} >
+            <div className="flex justify-center" >
+              <div className="mr-5 ml-5" style={{ width: `${isSmallDevice ? `95%` : `75vw`}` , alignItems: "center"}} >
+                <iframe 
+                  style={{ 
+                    width: `${isSmallDevice ? `95%` : `75vw`}`, 
+                    height: `${!isSmallDevice ? `25rem` : `15rem`}`, 
+                    alignSelf: "center" 
+                  }} 
+                  src="https://www.youtube.com/embed/rsHq4NPDEs0" 
+                  title="Redis: This can change your Database Game - Here how!" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen 
+                />
+                <br />
                 <PortableText content={element.body} className="text-center" />
               </div>
               {!isSmallDevice ?
                 <React.Fragment>
-                  <div className="bg-slate-600 h-96 mr-5 ml-5" style={{ width: "20vw" }} >
+                  <div className="bg-slate-600 mr-5 ml-5" style={{ width: "20vw", height: "25rem" }} >
 
                   </div>
                 </React.Fragment>

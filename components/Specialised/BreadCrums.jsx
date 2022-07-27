@@ -1,9 +1,12 @@
+import useMediaQuery from "../../contexts/CheckScreenSize";
 import { AiFillHome } from "react-icons/ai";
 import { FcNext } from "react-icons/fc";
 import Link from 'next/link';
 import React from 'react';
 
 const BreadCrums = ({ typeNo, title1, title2, title3, title4, link1, link2, link3, link4 }) => {
+    const isSmallDevice = useMediaQuery(1000);
+
     return (
         <div className='flex justify-center mt-1' >
             <nav className="flex px-5 py-3 text-gray-700 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700 justify-center" aria-label="Breadcrumb" style={{ maxWidth: '90vw', minWidth: "89vw" }}>
@@ -11,7 +14,7 @@ const BreadCrums = ({ typeNo, title1, title2, title3, title4, link1, link2, link
                     <Link href={`${link1}`}>
                         <li className="inline-flex items-center">
                             <a href="#" className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white captialize">
-                                <AiFillHome className="mr-1" />
+                                {!isSmallDevice? <AiFillHome className="mr-1" /> : ``}
                                 {title1}
                             </a>
                         </li>
