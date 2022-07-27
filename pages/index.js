@@ -57,7 +57,7 @@ const Home = ({ course }) => {
             <div className="flex flex-wrap -m-4 -mt-24 justify-center">
               {course.map((course) => {
                 return (
-                  <Recomended key={useId()} category={course.category} title={course.title} description={`${course.description}`} image={builder.image(course.mainImage)} link={`/courses/${course.slug.current}`} />
+                  <Recomended key={useId} category={course.category} title={course.title} description={`${course.description}`} image={builder.image(course.mainImage)} link={`/courses/${course.slug.current}`} />
                 );
               })}
             </div>

@@ -1,10 +1,16 @@
+import BreadCrums from "../../../components/Specialised/BreadCrums";
+import useMediaQuery from "../../../contexts/CheckScreenSize";
 import imageUrlBuilder from '@sanity/image-url';
+import PortableText from "react-portable-text";
 import { createClient } from 'next-sanity';
 import { useRouter } from "next/router";
-import PortableText from "react-portable-text"
 import React, { useId } from 'react';
 import NotFound from "../../404";
 import Link from "next/link";
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 const courseSlug = (courseContent) => {
   const client = createClient({
@@ -14,6 +20,7 @@ const courseSlug = (courseContent) => {
     useCdn: false
   });
 
+  const isSmallDevice = useMediaQuery(1000);
   const builder = imageUrlBuilder(client);
   const Router = useRouter();
   console.log(courseContent);
@@ -26,6 +33,14 @@ const courseSlug = (courseContent) => {
     return (
       <div>
         <React.Fragment>
+          <BreadCrums
+            typeNo={3}
+            title1={`Home`}
+            title2={`Courses`}
+            title3={capitalizeFirstLetter(courseContent["courseContent"][0]["courseCategory"])}
+            link1={`/`}
+            link2={`/courses`}
+            link3={`/courses/${courseContent["courseContent"][0]["courseCategory"]}`} />
           <br />
           <h1 className="text-6xl text-center capitalize" >{courseContent["courseContent"][0]["courseCategory"]}</h1>
           <br />
@@ -33,7 +48,7 @@ const courseSlug = (courseContent) => {
           <div className="flex flex-wrap justify-center" >
             {courseContent["courseContent"].map((course) => {
               return (
-                <div className="p-4 md:w-1/3 cursor-pointer" key={useId()}>
+                <div className="p-4 md:w-1/3 cursor-pointer" key={useId}>
                   <Link href={`/courses/${Router.query.slug}?tutorial=${course.slug.current}`} >
                     <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden" >
                       <img className="lg:h-48 md:h-36 w-full object-cover object-center" src={builder.image(course.mainImage)} alt="blog" width={720} height={400} />
@@ -59,9 +74,35 @@ const courseSlug = (courseContent) => {
       if (element.slug.current == Router.query.tutorial) {
         return (
           <React.Fragment>
+            <br />
+            <BreadCrums
+              typeNo={4}
+              title1={`Home`}
+              title2={`Courses`}
+              title3={capitalizeFirstLetter(courseContent["courseContent"][0]["courseCategory"])}
+              title4={element.title}
+              link1={`/`}
+              link2={`/courses`}
+              link3={`/courses/${courseContent["courseContent"][0]["courseCategory"]}`}
+              link4={`/courses/${courseContent["courseContent"][0]["courseCategory"]}?tutorial=${element.slug.current}`}
+            />
             <h1 className='text-4xl text-center mt-3'> {element.title} </h1>
             <br />
-            <PortableText content={element.body} className="text-center" />
+            <div className="flex" >
+              <div className="bg-slate-600 h-96 mr-5 ml-5" style={{ width: `${isSmallDevice?`95%`:`75vw`}` }} >
+                <PortableText content={element.body} className="text-center" />
+              </div>
+              {!isSmallDevice ?
+                <React.Fragment>
+                  <div className="bg-slate-600 h-96 mr-5 ml-5" style={{ width: "20vw" }} >
+
+                  </div>
+                </React.Fragment>
+                :
+                null
+              }
+            </div>
+            <br />
           </React.Fragment>
         )
       }
