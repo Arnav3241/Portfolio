@@ -12,6 +12,12 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+const seriliser = {
+  types: {
+    h1: (props) => <h1>{JSON.stringify(props, null, 2)}</h1>
+  }
+}
+
 const courseSlug = (courseContent) => {
   const client = createClient({
     projectId: "e4xrshwm",
@@ -84,7 +90,7 @@ const courseSlug = (courseContent) => {
               link3={`/courses/${courseContent["courseContent"][0]["courseCategory"]}`}
               link4={`/courses/${courseContent["courseContent"][0]["courseCategory"]}?tutorial=${element.slug.current}`}
             />
-            <h1 className='text-4xl text-center mt-3'> {element.title} </h1>
+            <h1 className='text-4xl text-left mt-3'> {element.title} </h1>
             <br />
             <div className="flex" >
               <div className="mr-5 ml-5" style={{ width: `${isSmallDevice ? `95%` : `75vw`}`}} >
@@ -101,25 +107,14 @@ const courseSlug = (courseContent) => {
                   allowfullscreen9
                 />
                 <br />
-                <PortableText content={element.body} className="text-center" />
-                <PortableText content={element.body} className="text-center" />
-                <PortableText content={element.body} className="text-center" />
-                <PortableText content={element.body} className="text-center" />
-                <PortableText content={element.body} className="text-center" />
-                <PortableText content={element.body} className="text-center" />
-                <PortableText content={element.body} className="text-center" />
-                <PortableText content={element.body} className="text-center" />
-                <PortableText content={element.body} className="text-center" />
-                <PortableText content={element.body} className="text-center" />
-                <PortableText content={element.body} className="text-center" />
-                <PortableText content={element.body} className="text-center" />
-                <PortableText content={element.body} className="text-center" />
-                <PortableText content={element.body} className="text-center" />
+                <code>
+                  Hello
+                </code>
+                <PortableText className={"text-left"} content={element.body} />
               </div>
               {!isSmallDevice ?
                 <React.Fragment>
-                  <div className="bg-slate-50 mr-5 ml-5 overflow-y-scroll border-8 fixed" style={{ width: "20vw", maxHeight: "25rem", right: "20px" }} >
-                    <div className="p-6 border-black border-2 h-5 m-1"></div>
+                  <div className="bg-slate-50 mr-5 ml-5 overflow-y-scroll " style={{ width: "20vw", height: "25rem"}} >
                     <div className="p-6 border-black border-2 h-5 m-1"></div>
                     <div className="p-6 border-black border-2 h-5 m-1"></div>
                     <div className="p-6 border-black border-2 h-5 m-1"></div>
