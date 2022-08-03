@@ -12,11 +12,7 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-const seriliser = {
-  types: {
-    h1: (props) => <h1>{JSON.stringify(props, null, 2)}</h1>
-  }
-}
+
 
 const courseSlug = (courseContent) => {
   const client = createClient({
@@ -76,6 +72,11 @@ const courseSlug = (courseContent) => {
   else if (Router.query.tutorial !== undefined) {
     for (let elementData = 0; elementData < courseContent["courseContent"].length; elementData++) {
       let element = courseContent["courseContent"][elementData];
+      const createMarkup = () => {
+        return {
+          __html: `${element.setInnerHTML}`
+        }
+      }
       if (element.slug.current == Router.query.tutorial) {
         return (
           <React.Fragment>
@@ -90,9 +91,9 @@ const courseSlug = (courseContent) => {
               link3={`/courses/${courseContent["courseContent"][0]["courseCategory"]}`}
               link4={`/courses/${courseContent["courseContent"][0]["courseCategory"]}?tutorial=${element.slug.current}`}
             />
-            <h1 className='text-4xl text-left mt-3'> {element.title} </h1>
+            <h1 className='text-4xl mt-3 text-center'> {element.title} </h1>
             <br />
-            <div className="flex" >
+            <div className="flex text-center" >
               <div className="mr-5 ml-5" style={{ width: `${isSmallDevice ? `95%` : `75vw`}`}} >
                 <iframe 
                   style={{ 
@@ -107,10 +108,7 @@ const courseSlug = (courseContent) => {
                   allowfullscreen9
                 />
                 <br />
-                <code>
-                  Hello
-                </code>
-                <PortableText className={"text-left"} content={element.body} />
+                <div dangerouslySetInnerHTML={ createMarkup() } className={"text-left text-xl"}  ></div>
               </div>
               {!isSmallDevice ?
                 <React.Fragment>
