@@ -1,7 +1,6 @@
 import BreadCrums from "../../../components/Specialised/BreadCrums";
 import useMediaQuery from "../../../contexts/CheckScreenSize";
 import imageUrlBuilder from '@sanity/image-url';
-import PortableText from "react-portable-text";
 import { createClient } from 'next-sanity';
 import { useRouter } from "next/router";
 import React, { useId } from 'react';
@@ -91,44 +90,20 @@ const courseSlug = (courseContent) => {
               link3={`/courses/${courseContent["courseContent"][0]["courseCategory"]}`}
               link4={`/courses/${courseContent["courseContent"][0]["courseCategory"]}?tutorial=${element.slug.current}`}
             />
-            <h1 className='text-4xl mt-3 text-center'> {element.title} </h1>
+            <h1 className='text-5xl mt-3 text-center'> {element.title} </h1>
             <br />
-            <div className="flex text-center" >
-              <div className="mr-5 ml-5" style={{ width: `${isSmallDevice ? `95%` : `75vw`}`}} >
-                <iframe 
-                  style={{ 
-                    width: `${isSmallDevice ? `95%` : `55vw`}`, 
-                    height: `${!isSmallDevice ? `25rem` : `15rem`}`, 
-                    alignSelf: "center" 
-                  }} 
-                  className={`border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden ${!isSmallDevice?`ml-32`:``}`}
-                  src={`${element.ytubeVideo}`} 
-                  frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowfullscreen9
-                />
-                <br />
-                <div dangerouslySetInnerHTML={ createMarkup() } className={"text-left text-xl"}  ></div>
-              </div>
-              {!isSmallDevice ?
-                <React.Fragment>
-                  <div className="bg-slate-50 mr-5 ml-5 overflow-y-scroll " style={{ width: "20vw", height: "25rem"}} >
-                    <div className="p-6 border-black border-2 h-5 m-1"></div>
-                    <div className="p-6 border-black border-2 h-5 m-1"></div>
-                    <div className="p-6 border-black border-2 h-5 m-1"></div>
-                    <div className="p-6 border-black border-2 h-5 m-1"></div>
-                    <div className="p-6 border-black border-2 h-5 m-1"></div>
-                    <div className="p-6 border-black border-2 h-5 m-1"></div>
-                    <div className="p-6 border-black border-2 h-5 m-1"></div>
-                    <div className="p-6 border-black border-2 h-5 m-1"></div>
-                    <div className="p-6 border-black border-2 h-5 m-1"></div>
-                    <div className="p-6 border-black border-2 h-5 m-1"></div>
-                    <div className="p-6 border-black border-2 h-5 m-1"></div>
-                  </div>
-                </React.Fragment>
-                :
-                null
-              }
+            <div className="w-full text-center" style={{ marginLeft: isSmallDevice?`0`:`20vw` }} >
+            <iframe 
+              width="942" 
+              height="530" 
+              src={`${element.ytubeVideo}`} 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen />
+              <br />
+              <div dangerouslySetInnerHTML={createMarkup()} className={"text-left text-2xl"}  ></div>
+              <br />
+              <br />
             </div>
             <br />
           </React.Fragment>

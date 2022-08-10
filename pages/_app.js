@@ -29,7 +29,7 @@ const App = ({ Component, pageProps }) => {
 
   useEffect(() => {
     router.events.on('routeChangeStart', () => {
-      setProgress(30);
+      setProgress(50);
     });
 
     router.events.on('routeChangeComplete', () => {
@@ -47,7 +47,7 @@ const App = ({ Component, pageProps }) => {
         </Head>
 
         {/* React Notification */} {isSmallDevice ? <ToastContainer position="top-left" theme="dark" autoClose={3000} newestOnTop /> : <ToastContainer position="bottom-right" theme="dark" autoClose={3000} newestOnTop />}
-        {/* React Top Loading Bar */} <LoadingBar color='#f11946' progress={progress} onLoaderFinished={() => setProgress(0)} waitingTime={400} />
+        {/* React Top Loading Bar */} <LoadingBar color='blue' progress={progress} onLoaderFinished={() => setProgress(0)} waitingTime={400} />
 
         <Navbar />
         <Component {...pageProps} />

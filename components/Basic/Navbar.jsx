@@ -52,7 +52,6 @@ const NavbarHeader = () => {
                         <Nav className="me-auto Navbar-Links">
                             <Nav.Link onClick={() => { router.push("/") }} >        Home        </Nav.Link>
                             <Nav.Link onClick={() => { router.push("/about") }} >   About       </Nav.Link>
-                            <Nav.Link onClick={() => { router.push("/blogs") }} >   Blogs       </Nav.Link>
                             <Nav.Link onClick={() => { router.push("/courses") }} > Courses     </Nav.Link>
                             <Nav.Link onClick={() => { router.push("/contact") }} > Contact Me  </Nav.Link>
                         </Nav>
